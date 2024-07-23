@@ -5,7 +5,7 @@ const nextConfig = {
           hostname: 'cdn.jsdelivr.net',
         },
         {
-            hostname: 'www.themoviedb.org',
+            hostname: 'www.superherodb.com',
           },
       ],
     },

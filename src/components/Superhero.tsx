@@ -1,4 +1,5 @@
 'use client'
+
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import SuperheroCard from './SuperheroCard';
@@ -47,7 +48,11 @@ const Superhero = () => {
       <h1 className="text-3xl font-bold text-center mb-6">Superhero App</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {superheroes.map((superhero) => (
-          <SuperheroCard key={superhero.id} superhero={superhero} />
+          <SuperheroCard 
+            key={superhero.id} 
+            superhero={superhero} 
+            imageSrc={superhero.images.sm} 
+          />
         ))}
       </div>
     </div>

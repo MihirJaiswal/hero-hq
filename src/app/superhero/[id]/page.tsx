@@ -1,13 +1,15 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useParams } from 'next/navigation';
 import axios from 'axios';
 
+// Define types for your superhero data
 interface Superhero {
   id: number;
   name: string;
-  images: {
+  image: {
+    url: string;
     lg: string;
   };
   biography: {
@@ -44,6 +46,29 @@ interface Superhero {
   };
 }
 
+// Component to handle image loading state
+const SuperheroImage = ({ src, alt }: { src: string; alt: string }) => {
+  const [loading, setLoading] = useState(true);
+  const [useFallbackImage, setUseFallbackImage] = useState(false);
+
+  const handleImageError = () => setUseFallbackImage(true);
+
+  return (
+    <div className="relative h-96 w-full">
+      {loading && <div className="absolute inset-0 flex items-center justify-center bg-gray-200">Loading image...</div>}
+      <Image
+        src={useFallbackImage ? '/fallback-image.jpg' : src}
+        alt={alt}
+        layout="fill"
+        objectFit="cover"
+        className="rounded-t-lg"
+        onLoadingComplete={() => setLoading(false)}
+        onError={handleImageError}
+      />
+    </div>
+  );
+};
+
 const SuperheroDetail = () => {
   const { id } = useParams();
 
@@ -65,24 +90,10 @@ const SuperheroDetail = () => {
       try {
         console.log('Fetching superhero data for ID:', id);
         
-        const [superheroResponse, powerstatsResponse, appearanceResponse, biographyResponse, connectionsResponse, workResponse] = await Promise.all([
-          axios.get(`https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/id/${id}.json`),
-          axios.get(`https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/powerstats/${id}.json`),
-          axios.get(`https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/appearance/${id}.json`),
-          axios.get(`https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/biography/${id}.json`),
-          axios.get(`https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/connections/${id}.json`),
-          axios.get(`https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/work/${id}.json`),
-        ]);
-
-        setSuperhero({
-          ...superheroResponse.data,
-          powerstats: powerstatsResponse.data,
-          appearance: appearanceResponse.data,
-          biography: biographyResponse.data,
-          connections: connectionsResponse.data,
-          work: workResponse.data,
-        });
+        const response = await axios.get(`https://www.superheroapi.com/api.php/a139f9c1625180c1b05ad4f297bd5d12/${id}`);
         
+        // If the API supports returning all required data in one request, do so to minimize the number of requests
+        setSuperhero(response.data);
       } catch (err) {
         console.error('Error fetching superhero data:', err);
         setError('Failed to fetch superhero details');
@@ -106,7 +117,10 @@ const SuperheroDetail = () => {
     superhero && (
       <div className="min-h-screen bg-gray-100 p-6">
         <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
-          <Image width={500} height={500} className="w-full h-96 object-cover" src={superhero.images.lg} alt={superhero.name} />
+          <SuperheroImage
+            src={superhero.image.url}
+            alt={superhero.name}
+          />
           <div className="p-4">
             <h1 className="text-3xl font-bold text-gray-900">{superhero.name}</h1>
             <p className="text-gray-700 mt-2"><strong>Full Name:</strong> {superhero.biography.fullName}</p>
