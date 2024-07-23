@@ -1,5 +1,5 @@
 'use client';
-
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import axios from 'axios';
@@ -106,7 +106,7 @@ const SuperheroDetail = () => {
     superhero && (
       <div className="min-h-screen bg-gray-100 p-6">
         <div className="max-w-4xl mx-auto bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden">
-          <img className="w-full h-96 object-cover" src={superhero.images.lg} alt={superhero.name} />
+          <Image width={500} height={500} className="w-full h-96 object-cover" src={superhero.images.lg} alt={superhero.name} />
           <div className="p-4">
             <h1 className="text-3xl font-bold text-gray-900">{superhero.name}</h1>
             <p className="text-gray-700 mt-2"><strong>Full Name:</strong> {superhero.biography.fullName}</p>

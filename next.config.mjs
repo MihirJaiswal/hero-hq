@@ -1,4 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+    images: {
+      remotePatterns: [
+        {
+          hostname: 'cdn.jsdelivr.net',
+        },
+        {
+            hostname: 'www.themoviedb.org',
+          },
+      ],
+    },
+  };
+  
+  export default nextConfig;
