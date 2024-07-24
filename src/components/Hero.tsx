@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Typewriter from 'typewriter-effect';
 import Image from 'next/image';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Particles from './ui/particles';
 
 // Define an interface for the superhero data
 interface Superhero {
@@ -31,7 +32,7 @@ const superheroes: Superhero[] = [
   },
   {
     name: 'Superman',
-    image: '/superman3.png',
+    image: '/superman.png',
     description: 'The Man of Steel, Superman is known for his superhuman strength, speed, and the ability to fly.',
     backgroundImage: '/pngegg2.png',
     logoImage: '/super.png',
@@ -39,7 +40,7 @@ const superheroes: Superhero[] = [
 ];
 
 const Hero: React.FC = () => {
-  const [selectedHero, setSelectedHero] = useState<Superhero>(superheroes[0]);
+  const [selectedHero, setSelectedHero] = useState<Superhero>(superheroes[1]);
   const [direction, setDirection] = useState<'left' | 'right'>('left');
 
   const handleHeroChange = (hero: Superhero, newDirection: 'left' | 'right') => {
@@ -50,8 +51,15 @@ const Hero: React.FC = () => {
   return (
     <div className="relative md:h-screen bg-cover bg-bg1 bg-center flex items-center justify-center text-center md:text-left text-white overflow-hidden pt-8 md:pt-1">
       {/* Background image */}
+      <Particles
+              className="absolute inset-0"
+              quantity={400}
+              ease={80}
+              color='#ffff'
+              refresh
+            />
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${selectedHero.backgroundImage})` }}></div>
-
+    
       <div className="relative z-10 px-4 md:px-20 flex flex-col md:flex-row items-center md:items-start justify-between w-full">
         <div className="flex w-full flex-col items-center md:flex-row md:items-start justify-between gap-10 relative z-20">
           <div className="mt-16 md:mt-24 flex flex-col items-center md:items-start">
@@ -66,6 +74,7 @@ const Hero: React.FC = () => {
                 className="w-48"
               />
             </div>
+           
             <h1 className="md:text-5xl text-3xl font-bold mb-2">
               <Typewriter
                 options={{
@@ -94,10 +103,10 @@ const Hero: React.FC = () => {
               {superheroes.map(hero => (
                 <button
                   key={hero.name}
-                  className={`flex flex-col items-center transition transform hover:scale-105 ${selectedHero.name === hero.name ? 'shadow-lg' : 'shadow-md'}`}
+                  className={`flex flex-col items-center transition transform hover:scale-105 ${selectedHero.name === hero.name ? 'shadow-lg  scale-110' : 'shadow-md'}`}
                   onClick={() => handleHeroChange(hero, selectedHero.name === hero.name ? 'left' : 'right')}
                 >
-                  <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-red-500">
+                  <div className={`w-24 h-24 rounded-full overflow-hidden border-2 ${selectedHero.name === hero.name ? 'border-red-500' : 'border-white'} `}>
                     <Image
                       src={hero.image} // Thumbnail image
                       alt={hero.name}
@@ -111,9 +120,8 @@ const Hero: React.FC = () => {
                 </button>
               ))}
             </div>
-
           </div>
-          <TransitionGroup className="transition-group w-1/2 relative h-[32rem] flex items-center justify-center">
+          <TransitionGroup className="transition-group w-full relative h-96 md:h-full flex items-center justify-center">
             <CSSTransition
               key={selectedHero.name}
               timeout={500}
@@ -126,7 +134,7 @@ const Hero: React.FC = () => {
                 height={800}
                 quality={100}
                 objectFit="contain"
-                className="main-image"
+                className="main-image mt-10 md:mt-0"
               />
             </CSSTransition>
           </TransitionGroup>
