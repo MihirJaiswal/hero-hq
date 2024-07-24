@@ -32,3 +32,53 @@ body {
   }
 }
 
+/* styles.css */
+.transition-group {
+  position: relative;
+  width: 100%;
+}
+
+.main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.left-enter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.left-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
+}
+.left-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+.left-exit-active {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
+}
+
+.right-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.right-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
+}
+.right-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+.right-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
+}

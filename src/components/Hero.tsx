@@ -2,9 +2,19 @@
 import React, { useState } from 'react';
 import Typewriter from 'typewriter-effect';
 import Image from 'next/image';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
+// Define an interface for the superhero data
+interface Superhero {
+  name: string;
+  image: string;
+  description: string;
+  backgroundImage: string;
+  logoImage: string;
+}
 
 // Define the data for each superhero
-const superheroes = [
+const superheroes: Superhero[] = [
   {
     name: 'Spiderman',
     image: '/spiderman.png',
@@ -15,35 +25,32 @@ const superheroes = [
   {
     name: 'Batman',
     image: '/batman.png',
-    description: 'Genius, billionaire, playboy, philanthropist. Ironman, with his advanced technology and unyielding spirit.',
-    backgroundImage: '/batlogo.svg',
+    description: 'The Dark Knight of Gotham, Batman uses his intelligence, physical prowess, and an array of gadgets to combat crime.',
+    backgroundImage: '/Batman-logo.png',
     logoImage: '/bat.png',
   },
   {
     name: 'Superman',
-    image: '/captain-america.png',
-    description: 'The first Avenger, fighting for justice and freedom with his indestructible shield and unwavering morals.',
-    backgroundImage: '/captain-america-bg.png',
-    logoImage: '/captain-america-logo.png',
+    image: '/superman.png',
+    description: 'The Man of Steel, Superman is known for his superhuman strength, speed, and the ability to fly.',
+    backgroundImage: '/pngegg2.png',
+    logoImage: '/super.png',
   },
 ];
 
 const Hero: React.FC = () => {
-  const [selectedHero, setSelectedHero] = useState(superheroes[0]);
+  const [selectedHero, setSelectedHero] = useState<Superhero>(superheroes[0]);
+  const [direction, setDirection] = useState<'left' | 'right'>('left');
+
+  const handleHeroChange = (hero: Superhero, newDirection: 'left' | 'right') => {
+    setDirection(newDirection);
+    setSelectedHero(hero);
+  };
 
   return (
-    <div className="relative h-screen bg-cover bg-bg1 bg-center flex items-center justify-center text-center md:text-left text-white">
+    <div className="relative h-screen bg-cover bg-bg1 bg-center flex items-center justify-center text-center md:text-left text-white overflow-hidden">
       {/* Background image */}
-      <div className="absolute inset-0 bg-cover bg-center"  style={{ backgroundImage: `url(${selectedHero.backgroundImage})` }}></div>
-      <div className="absolute w-[570px] h-[570px] left-32 top-32 inset-0">
-       {/*  <Image
-          src={selectedHero.backgroundImage}
-          alt="Background"
-          layout="fill"
-          objectFit="cover"
-          className="w-96 h-auto"
-        /> */}
-      </div>
+      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${selectedHero.backgroundImage})` }}></div>
 
       <div className="relative z-10 px-20 flex flex-col md:flex-row items-center md:items-start justify-between w-full">
         <div className="flex w-full flex-col items-center md:flex-row md:items-start justify-between gap-10 relative z-20">
@@ -62,7 +69,7 @@ const Hero: React.FC = () => {
             <h1 className="text-5xl font-bold mb-2">
               <Typewriter
                 options={{
-                  strings: ['Welcome to HeroHQ', 'Unleash Your Inner Hero'],
+                  strings: ['The HeroHQ', 'Discover Your Hero'],
                   autoStart: true,
                   loop: true,
                 }}
@@ -87,8 +94,8 @@ const Hero: React.FC = () => {
               {superheroes.map(hero => (
                 <button
                   key={hero.name}
-                  className="flex flex-col items-center"
-                  onClick={() => setSelectedHero(hero)}
+                  className={`flex flex-col items-center ${selectedHero.name === hero.name ? 'border-4 border-red-500' : ''}`}
+                  onClick={() => handleHeroChange(hero, selectedHero.name === hero.name ? 'left' : 'right')}
                 >
                   <Image
                     src={hero.image} // Thumbnail image
@@ -103,15 +110,23 @@ const Hero: React.FC = () => {
               ))}
             </div>
           </div>
-          <Image
-            src={selectedHero.image} // Main superhero image
-            alt="Superhero"
-            width={800}
-            height={800}
-            quality={100}
-            objectFit="contain"
-            className="w-1/2"
-          />
+          <TransitionGroup className="transition-group w-1/2 relative h-[32rem] flex items-center justify-center">
+            <CSSTransition
+              key={selectedHero.name}
+              timeout={500}
+              classNames={direction}
+            >
+              <Image
+                src={selectedHero.image}
+                alt="Superhero"
+                width={800}
+                height={800}
+                quality={100}
+                objectFit="contain"
+                className="main-image"
+              />
+            </CSSTransition>
+          </TransitionGroup>
         </div>
       </div>
     </div>
