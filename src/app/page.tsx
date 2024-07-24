@@ -1,4 +1,5 @@
 import AboutUs from '@/components/About'
+import ClientSection from '@/components/Client-section'
 import FooterSection from '@/components/Footer'
 import Hero from '@/components/Hero'
 import HomeHeader from '@/components/HomeHeader'
@@ -13,6 +14,7 @@ const page = () => {
       <Hero/>
       <AboutUs/>
       <SpecialCards/>
+      <ClientSection/>
       <MarqueeCard/>
       <FooterSection/>
     </div>
