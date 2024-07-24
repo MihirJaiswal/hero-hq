@@ -38,17 +38,19 @@ const ReviewCard = ({img}: {img: string }) => {
         "relative w-28 md:w-36 cursor-pointer overflow-hidden rounded-xl p-4",
       )}
     >
-     <img className="w-full h-full object-cover rounded-full" alt="" src={img} />
+     
+     <img className="w-full h-full object-cover rounded-full filter brightness-95" alt="" src={img} />
     </figure>
   );
 };
 
 export function MarqueeCard() {
     return (
-      <div className="relative flex h-full py-4 w-full flex-col items-center justify-center overflow-hidden bg-bg2 md:shadow-xl">
+      <div className="relative flex h-full py-12 w-full flex-col items-center justify-center overflow-hidden bg-bg2 md:shadow-xl">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((review, index) => (
             <ReviewCard key={index} img={review.img} />
+            
           ))}
         </Marquee>
         <Marquee reverse pauseOnHover className="[--duration:20s]">
@@ -56,8 +58,8 @@ export function MarqueeCard() {
             <ReviewCard key={index} img={review.img} />
           ))}
         </Marquee>
-      {/*   <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-black dark:from-background"></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-black dark:from-background"></div> */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#0F1828] dark:from-background"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-[#0F1828] dark:from-background"></div>
       </div>
     );
   }
