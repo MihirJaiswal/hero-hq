@@ -1,7 +1,7 @@
 import Hero from '@/components/Hero'
 import HomeHeader from '@/components/HomeHeader'
 import { MarqueeCard } from '@/components/Marqueecard'
-import App from '@/components/ParallelScroll'
+import SpecialCards from '@/components/SpecialCards'
 import React from 'react'
 
 const page = () => {
@@ -9,7 +9,7 @@ const page = () => {
     <div>
       <HomeHeader/>
       <Hero/>
-      <App/>
+      <SpecialCards/>
       <MarqueeCard/>
     </div>
   )

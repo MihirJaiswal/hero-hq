@@ -1,9 +1,10 @@
 'use client';
 import React from 'react';
 import styled from 'styled-components';
-import Slider from 'react-slick';
+import Slider, { Settings} from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { SamplePrevArrow, SampleNextArrow } from './CustomArrows';
 
 // Styled Components
 const CardContainer = styled.a`
@@ -86,6 +87,50 @@ const Card: React.FC<CardProps> = ({ coverImage, titleImage, characterImage }) =
   );
 };
 
+// Custom Arrow Buttons
+const ArrowButton = styled.button`
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+
+  &:hover {
+    background: #ddd;
+  }
+
+  &:disabled {
+    background: #f0f0f0;
+    cursor: not-allowed;
+  }
+`;
+
+/* const PrevArrow: React.FC<SamplePrevArrow> = ({ className, style, onClick }) => (
+  <ArrowButton
+    className={className}
+    style={{ ...style, left: '10px' }}
+    onClick={onClick}
+  >
+    &#9664;
+  </ArrowButton>
+);
+
+const NextArrow: React.FC<SampleNextArrow> = ({ className, style, onClick }) => (
+  <ArrowButton
+    className={className}
+    style={{ ...style, right: '10px' }}
+    onClick={onClick}
+  >
+    &#9654;
+  </ArrowButton>
+);
+ */
 // CSS Variables
 const GlobalStyles = styled.div`
   --card-height: 400px; /* Increased height */
@@ -100,7 +145,7 @@ const GlobalStyles = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #1927409;
+    background: #192740;
     overflow: hidden;
   }
 
@@ -139,15 +184,17 @@ const GlobalStyles = styled.div`
   }
 `;
 
-const App: React.FC = () => {
-  const settings = {
+const SpecialCards: React.FC = () => {
+  const settings: Settings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    centerMode: true, // Centers the current slide
-    centerPadding: '10px', // Padding around the center slide
+    centerMode: true,
+    centerPadding: '10px',
+    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -196,4 +243,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default SpecialCards;
