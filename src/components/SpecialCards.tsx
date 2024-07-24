@@ -216,7 +216,7 @@ const SpecialCards: React.FC = () => {
   };
 
   return (
-    <GlobalStyles className='overflow-hidden py-20 bg-[#1A2841]'>
+    <GlobalStyles className='overflow-hidden py-20 bg-bg1'>
       <Slider {...settings}>
         <Card
           coverImage="https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg"

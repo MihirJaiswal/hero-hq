@@ -1,3 +1,5 @@
+import AboutUs from '@/components/About'
+import FooterSection from '@/components/Footer'
 import Hero from '@/components/Hero'
 import HomeHeader from '@/components/HomeHeader'
 import { MarqueeCard } from '@/components/Marqueecard'
@@ -6,11 +8,13 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>
+    <div className='bg-[#1A2841]'>
       <HomeHeader/>
       <Hero/>
+      <AboutUs/>
       <SpecialCards/>
       <MarqueeCard/>
+      <FooterSection/>
     </div>
   )
 }

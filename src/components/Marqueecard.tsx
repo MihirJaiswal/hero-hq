@@ -45,7 +45,7 @@ const ReviewCard = ({img}: {img: string }) => {
 
 export function MarqueeCard() {
     return (
-      <div className="relative flex h-full py-4 w-full flex-col items-center justify-center overflow-hidden bg-[#1A2841] md:shadow-xl">
+      <div className="relative flex h-full py-4 w-full flex-col items-center justify-center overflow-hidden bg-bg2 md:shadow-xl">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((review, index) => (
             <ReviewCard key={index} img={review.img} />
