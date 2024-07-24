@@ -31,7 +31,7 @@ const superheroes: Superhero[] = [
   },
   {
     name: 'Superman',
-    image: '/superman.png',
+    image: '/superman3.png',
     description: 'The Man of Steel, Superman is known for his superhuman strength, speed, and the ability to fly.',
     backgroundImage: '/pngegg2.png',
     logoImage: '/super.png',
@@ -48,13 +48,13 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <div className="relative h-screen bg-cover bg-bg1 bg-center flex items-center justify-center text-center md:text-left text-white overflow-hidden">
+    <div className="relative md:h-screen bg-cover bg-bg1 bg-center flex items-center justify-center text-center md:text-left text-white overflow-hidden pt-8 md:pt-1">
       {/* Background image */}
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${selectedHero.backgroundImage})` }}></div>
 
-      <div className="relative z-10 px-20 flex flex-col md:flex-row items-center md:items-start justify-between w-full">
+      <div className="relative z-10 px-4 md:px-20 flex flex-col md:flex-row items-center md:items-start justify-between w-full">
         <div className="flex w-full flex-col items-center md:flex-row md:items-start justify-between gap-10 relative z-20">
-          <div className="mt-24 flex flex-col items-center md:items-start">
+          <div className="mt-16 md:mt-24 flex flex-col items-center md:items-start">
             <div className="flex items-center justify-center mb-4">
               <Image
                 src={selectedHero.logoImage} // Use the path to the selected hero's logo
@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
                 className="w-48"
               />
             </div>
-            <h1 className="text-5xl font-bold mb-2">
+            <h1 className="md:text-5xl text-3xl font-bold mb-2">
               <Typewriter
                 options={{
                   strings: ['The HeroHQ', 'Discover Your Hero'],
@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
                 }}
               />
             </h1>
-            <p className="text-lg mt-2">{selectedHero.description}</p>
+            <p className="text-lg mt-2 mx-2">{selectedHero.description}</p>
             <div className='flex items-center justify-center gap-4 my-6'>
               <a
                 href="#"
@@ -90,25 +90,28 @@ const Hero: React.FC = () => {
                 Learn More
               </a>
             </div>
-            <div className='flex gap-4 mt-10'>
+            <div className="flex gap-8 mt-10">
               {superheroes.map(hero => (
                 <button
                   key={hero.name}
-                  className={`flex flex-col items-center ${selectedHero.name === hero.name ? 'border-4 border-red-500' : ''}`}
+                  className={`flex flex-col items-center transition transform hover:scale-105 ${selectedHero.name === hero.name ? 'shadow-lg' : 'shadow-md'}`}
                   onClick={() => handleHeroChange(hero, selectedHero.name === hero.name ? 'left' : 'right')}
                 >
-                  <Image
-                    src={hero.image} // Thumbnail image
-                    alt={hero.name}
-                    width={100}
-                    height={100}
-                    objectFit="cover"
-                    className="w-24 h-24 rounded-full border-2 border-white"
-                  />
-                  <p className="mt-2 text-sm">{hero.name}</p>
+                  <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-red-500">
+                    <Image
+                      src={hero.image} // Thumbnail image
+                      alt={hero.name}
+                      width={100}
+                      height={100}
+                      objectFit="cover"
+                      className="w-full h-full"
+                    />
+                  </div>
+                  <p className="mt-2 text-sm font-semibold">{hero.name}</p>
                 </button>
               ))}
             </div>
+
           </div>
           <TransitionGroup className="transition-group w-1/2 relative h-[32rem] flex items-center justify-center">
             <CSSTransition
