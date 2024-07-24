@@ -1,8 +1,31 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 
+// Define card data
+const cardData = [
+  {
+    id: 0,
+    imageSrc: '/icons/deadpool.png',
+    title: 'Hero Profiles',
+    description: 'Explore detailed profiles of iconic superheroes, from their origin stories to their most powerful abilities. Customize your hero experience with in-depth information and engaging content.',
+  },
+  {
+    id: 1,
+    imageSrc: '/icons/vector.png',
+    title: 'Up-to-Date Information',
+    description: 'Stay updated with the latest news and updates from the superhero world. Our platform provides real-time information on new characters, storylines, and events across various universes.',
+  },
+  {
+    id: 2,
+    imageSrc: '/icons/drstrange.png',
+    title: 'Hero HQ Features',
+    description: 'From interactive hero profiles to advanced search filters, Hero HQ provides all the tools you need to explore and manage your favorite superheroes.',
+  }
+];
+
 const Compo: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeCard, setActiveCard] = useState<number | null>(null); // For tracking active card
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,100 +53,58 @@ const Compo: React.FC = () => {
     };
   }, []);
 
+  const handleCardClick = (index: number) => {
+    setActiveCard(index);
+  };
+
   return (
     <div className="bg-bg3">
       <section
-        className={`relative block px-6 py-10 md:py-20 md:px-10 border-t border-b border-neutral-900 bg-neutral-900/30 transition-opacity duration-700 ease-out transform ${
+        className={`relative block px-6 py-10 md:py-20 md:px-10 border-t border-b border-neutral-900 bg-bg3 transition-opacity duration-700 ease-out transform ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
         ref={ref}
       >
-        <div className="relative mx-auto max-w-5xl text-center">
+        <div className="relative mx-auto max-w-5xl text-center flex flex-col items-center justify-center">
+          <div>
+            <img src="/logo.png" alt="Hero HQ Logo" className='w-24' />
+          </div>
           <span className="text-gray-400 my-3 flex items-center justify-center font-medium uppercase tracking-wider">
-            Why choose us
+            Welcome to Hero HQ
           </span>
           <h2 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
-            Build a Website That Your Customers Love
+            Discover the Heroes Behind the Legends
           </h2>
           <p className="mx-auto my-4 w-full max-w-xl bg-transparent text-center font-medium leading-relaxed tracking-wide text-gray-400">
-            Our templates allow for maximum customization. No technical skills required – our intuitive design tools let
-            you get the job done easily.
+            At Hero HQ, explore the rich history and diverse powers of your favorite superheroes. Our interactive database offers detailed insights and profiles on a vast array of heroes.
           </p>
         </div>
 
         <div className="relative mx-auto max-w-7xl z-10 grid grid-cols-1 gap-10 pt-14 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="rounded-md border border-neutral-800 bg-bg2 p-8 text-center shadow" 
-          style={{
-            backgroundImage: 'linear-gradient(to bottom, #0d111a, #0d1118, #0d1017, #0d1015, #0d0f13)',
-          }}
-          >
-            <div
-              className="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border"
+          {cardData.map(({ id, imageSrc, title, description }) => (
+            <div 
+              key={id}
+              className={`rounded-md border border-neutral-800 bg-bg2 p-8 text-center shadow transition-transform transform ${
+                activeCard === id ? 'scale-105' : ''
+              }`}
               style={{
-                backgroundImage: 'linear-gradient(rgb(80, 70, 229) 0%, rgb(43, 49, 203) 100%)',
-                borderColor: 'rgb(93, 79, 240)',
+                backgroundImage: 'linear-gradient(to bottom, #0d111a, #0d1118, #0d1017, #0d1015, #0d0f13)',
               }}
+              onClick={() => handleCardClick(id)}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-color-swatch" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M19 3h-4a2 2 0 0 0 -2 2v12a4 4 0 0 0 8 0v-12a2 2 0 0 0 -2 -2"></path>
-                <path d="M13 7.35l-2 -2a2 2 0 0 0 -2.828 0l-2.828 2.828a2 2 0 0 0 0 2.828l9 9"></path>
-                <path d="M7.3 13h-2.3a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h12"></path>
-                <line x1="17" y1="17" x2="17" y2="17.01"></line>
-              </svg>
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-md border"> {/* Increased image size */}
+                <img src={imageSrc} alt={title} className="h-full w-full object-contain" />
+              </div>
+              <h3 className="mt-6 text-gray-200">{title}</h3>
+              <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
+                {description}
+              </p>
             </div>
-            <h3 className="mt-6 text-gray-400">Customizable</h3>
-            <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
-              Tailor your landing page's look and feel, from the color scheme to the font size, to the design of the page.
-            </p>
-          </div>
-
-          <div className="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
-            <div
-              className="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border"
-              style={{
-                backgroundImage: 'linear-gradient(rgb(80, 70, 229) 0%, rgb(43, 49, 203) 100%)',
-                borderColor: 'rgb(93, 79, 240)',
-              }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-bolt" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <polyline points="13 3 13 10 19 10 11 21 11 14 5 14 13 3"></polyline>
-              </svg>
-            </div>
-            <h3 className="mt-6 text-gray-400">Fast Performance</h3>
-            <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
-              We build our templates for speed in mind, for super-fast load times so your customers never waver.
-            </p>
-          </div>
-
-          <div className="rounded-md border border-neutral-800 bg-neutral-900/50 p-8 text-center shadow">
-            <div
-              className="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border"
-              style={{
-                backgroundImage: 'linear-gradient(rgb(80, 70, 229) 0%, rgb(43, 49, 203) 100%)',
-                borderColor: 'rgb(93, 79, 240)',
-              }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-tools" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M3 21h4l13 -13a1.5 1.5 0 0 0 -4 -4l-13 13v4"></path>
-                <line x1="14.5" y1="5.5" x2="18.5" y2="9.5"></line>
-                <polyline points="12 8 7 3 3 7 8 12"></polyline>
-                <line x1="7" y1="8" x2="5.5" y2="9.5"></line>
-                <polyline points="16 12 21 17 17 21 12 16"></polyline>
-                <line x1="16" y1="17" x2="14.5" y2="18.5"></line>
-              </svg>
-            </div>
-            <h3 className="mt-6 text-gray-400">Fully Featured</h3>
-            <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
-              Everything you need to succeed and launch your landing page, right out of the box. No need to install anything else.
-            </p>
-          </div>
+          ))}
         </div>
 
-       {/*  <div className="absolute top-0 left-0 z-0 h-1/3 w-full border-b" style={{ backgroundImage: 'linear-gradient(to left top, transparent 0%, transparent 50%, rgba(79, 70, 229, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div> */}
         <div className="absolute top-0 right-0 z-0 h-1/3 w-full" style={{ backgroundImage: 'linear-gradient(to right top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
+        <div className="absolute top-0 right-0 z-0 h-1/3 w-full" style={{ backgroundImage: 'linear-gradient(to left top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
       </section>
     </div>
   );
