@@ -36,17 +36,16 @@ const Superhero = () => {
   }, []);
 
   if (loading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+    return <div className="min-h-screen flex items-center justify-center text-xl font-semibold">Loading...</div>;
   }
 
   if (error) {
-    return <div className="min-h-screen flex items-center justify-center">{error}</div>;
+    return <div className="min-h-screen flex items-center justify-center text-xl font-semibold text-red-500">{error}</div>;
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">Superhero App</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div className="min-h-screen md:bg-white/10 backdrop-blur-md border border-black p-6">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         {superheroes.map((superhero) => (
           <SuperheroCard 
             key={superhero.id} 
