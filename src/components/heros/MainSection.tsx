@@ -41,7 +41,7 @@ export function MainSection() {
       ref={containerRef}
     >
           <div className='fixed inset-0 bg-black bg-contain bg-repeat-x bg-center opacity-20 pointer-events-none'></div>
-          <div className='fixed h-screen inset-0 bg-bg5 bg-cover bg-center opacity-15 pointer-events-none flex items-center justify-center'></div>
+          <div className='absolute h-screen inset-0 bg-bg5 bg-cover bg-center opacity-15 pointer-events-none flex items-center justify-center'></div>
         <Particles className="absolute inset-0" quantity={180} ease={80} color='#fff' refresh />
       <div className="flex size-full flex-col max-w-lg max-h-[200px] items-stretch justify-between gap-10  -mt-14">
         <div className="flex flex-row items-center justify-between">
