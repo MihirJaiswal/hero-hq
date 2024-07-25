@@ -99,61 +99,64 @@ const Superhero = () => {
             Discover the Heroes Behind the Legends
           </h2>
         </div>
-      <div className="flex flex-col items-center my-12">
-        <div className="flex items-center justify-center gap-4 mb-4 w-full">
-          <div className="flex items-center border border-gray-300 bg-gray-900 rounded-lg overflow-hidden w-full md:w-1/3">
-            <FaSearch className="text-gray-500 ml-2" />
-            <input
-              type="text"
-              placeholder="Search by name or full name..."
-              value={searchTerm}
-              onChange={handleSearchChange}
-              className="p-2 w-full text-black focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-900"
-            />
-          </div>
-          <select
-            name="publisher"
-            onChange={handleFilterChange}
-            className="p-2 border border-gray-300 bg-gray-900 text-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="">All Publishers</option>
-            <option value="Marvel Comics">Marvel Comics</option>
-            <option value="DC Comics">DC Comics</option>
-            {/* Add more publishers as needed */}
-          </select>
-          <select
-            name="alignment"
-            onChange={handleFilterChange}
-            className="p-2 border border-gray-300 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="">All Alignments</option>
-            <option value="good">Good</option>
-            <option value="bad">Bad</option>
-            <option value="neutral">Neutral</option>
-          </select>
-          <select
-            name="gender"
-            onChange={handleFilterChange}
-            className="p-2 border border-gray-300 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="">All Genders</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            {/* Add more genders as needed */}
-          </select>
-          <select
-            name="race"
-            onChange={handleFilterChange}
-            className="p-2 border border-gray-300 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="">All Species</option>
-            <option value="Human">Human</option>
-            <option value="Mutant">Mutant</option>
-            <option value="Alien">Alien</option>
-            {/* Add more species as needed */}
-          </select>
-        </div>
-      </div>
+        <div className="flex flex-col items-center my-12">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex items-center border border-gray-300 bg-gray-900 rounded-lg overflow-hidden flex-1">
+      <FaSearch className="text-gray-500 ml-2" />
+      <input
+        type="text"
+        placeholder="Search by name or full name..."
+        value={searchTerm}
+        onChange={handleSearchChange}
+        className="p-2 w-full text-white focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-900"
+      />
+    </div>
+    <div className="flex flex-wrap justify-center gap-4 w-full md:w-auto">
+    <select
+        name="publisher"
+        onChange={handleFilterChange}
+        className="p-2 border border-gray-300 bg-gray-900 text-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-44"
+      >
+        <option value="">All Publishers</option>
+        <option value="Marvel Comics">Marvel Comics</option>
+        <option value="DC Comics">DC Comics</option>
+        {/* Add more publishers as needed */}
+      </select>
+      <select
+        name="alignment"
+        onChange={handleFilterChange}
+        className="p-2 border border-gray-300 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-44"
+      >
+        <option value="">All Alignments</option>
+        <option value="good">Good</option>
+        <option value="bad">Bad</option>
+        <option value="neutral">Neutral</option>
+      </select>
+      <select
+        name="gender"
+        onChange={handleFilterChange}
+        className="p-2 border border-gray-300 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-44"
+      >
+        <option value="">All Genders</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        {/* Add more genders as needed */}
+      </select>
+      <select
+        name="race"
+        onChange={handleFilterChange}
+        className="p-2 border border-gray-300 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-44"
+      >
+        <option value="">All Species</option>
+        <option value="Human">Human</option>
+        <option value="Mutant">Mutant</option>
+        <option value="Alien">Alien</option>
+        {/* Add more species as needed */}
+      </select>
+    </div>
+  </div>
+</div>
+
       <div className="flex flex-wrap items-center justify-center gap-8">
         {filteredSuperheroes.slice(0, displayedCount).map((superhero) => (
           <SuperheroCard
