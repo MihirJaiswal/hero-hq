@@ -20,6 +20,7 @@ import { FaArrowLeft, FaBirthdayCake, FaUserShield, FaBookOpen, FaTag, FaMapMark
 import { MdWork } from 'react-icons/md';
 import Footer from '@/components/Footer';
 import HomeHeader from '@/components/HomeHeader';
+import Loader from '@/components/Loader';
 
 // Define types for your superhero data
 interface Superhero {
@@ -123,8 +124,8 @@ const SuperheroDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center text-xl font-semibold text-gray-700">
-        Loading...
+      <div>
+        <Loader/>
       </div>
     );
   }
@@ -436,7 +437,7 @@ const SuperheroDetail = () => {
           alt="Average Height"
           width={100} // Adjust the width as needed
           height={100} // Adjust the height as needed
-          className="w-auto h-24"
+          className="w-auto h-[100px]"
         />
       </div>
     </div>
