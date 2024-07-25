@@ -16,19 +16,20 @@ interface SuperheroCardProps {
 const SuperheroCard: React.FC<SuperheroCardProps> = ({ superhero, imageSrc }) => {
   return (
     <Link href={`/superhero/${superhero.id}`}>
-      <div className="block max-w-xs mx-auto bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105 hover:shadow-lg">
+      <div className="relative max-w-xs mx-auto bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transform transition-transform hover:scale-105 hover:shadow-lg hover:border-transparent hover:bg-gradient-to-br hover:from-indigo-600 hover:to-purple-600 group">
         <div className="relative h-48 w-full">
           <Image
             src={imageSrc}
             alt={superhero.name}
             layout="fill"
-            objectFit="contain"
-            className="rounded-t-lg"
+            objectFit="cover"
+            className="rounded-t-lg transition-transform group-hover:scale-110"
           />
         </div>
-        <div className="p-4">
-          <h2 className="text-xl font-bold text-gray-900">{superhero.name}</h2>
-          <p className="text-gray-700 mt-2">Full Name: {superhero.biography.fullName}</p>
+        <div className="p-4 relative z-10">
+          <h2 className="text-xl font-bold text-gray-900 group-hover:text-white">{superhero.name}</h2>
+          <p className="text-gray-700 mt-2 group-hover:text-gray-200">Full Name: {superhero.biography.fullName}</p>
+  
         </div>
       </div>
     </Link>

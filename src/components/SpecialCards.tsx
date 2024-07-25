@@ -245,24 +245,24 @@ const SpecialCards: React.FC = () => {
     </div>
       <Slider {...settings}>
         <Card
-          coverImage="https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg"
-          titleImage="https://ggayane.github.io/css-experiments/cards/dark_rider-title.png"
-          characterImage="https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp"
+          coverImage="/thedarkknightposter.jpg"
+          titleImage="/dlogo.png"
+          characterImage="/klipart.png"
         />
         <Card
-          coverImage="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg"
-          titleImage="https://ggayane.github.io/css-experiments/cards/force_mage-title.png"
-          characterImage="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp"
+          coverImage="/spidermanposter.jpg"
+          titleImage="pngwing1.png"
+          characterImage="/spidermanpng.png"
         />
         <Card
-          coverImage="https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg"
-          titleImage="https://ggayane.github.io/css-experiments/cards/dark_rider-title.png"
-          characterImage="https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp"
+          coverImage="/hulkposter.jpg"
+          titleImage="/hlogo1.png"
+          characterImage="/hulp1.png"
         />
         <Card
-          coverImage="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg"
-          titleImage="https://ggayane.github.io/css-experiments/cards/force_mage-title.png"
-          characterImage="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp"
+          coverImage="/aquamanposter.jpg"
+          titleImage="aquamanlogo.png"
+          characterImage="aquaman.png"
         />
       </Slider>
     </GlobalStyles>
