@@ -1,4 +1,4 @@
-import Superhero from '@/components/Superhero'
+import Superhero from '@/components/heros/Superhero'
 import React from 'react'
 
 const page = () => {
