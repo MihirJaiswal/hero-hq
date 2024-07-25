@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import HomeNav from './HomeNav'
-/* import HomeMobileNav from './HomeMobileNav' */
+import HomeMobileNav from './HomeMobileNav'
 import logo from '../../public/logo.png'
 
 const HomeHeader = () => {
@@ -21,9 +21,9 @@ const HomeHeader = () => {
         <div>
         <HomeNav/>
         </div>
-    {/*   <div className='flex-between gap-5'>
+      <div className='flex-between gap-5'>
          <HomeMobileNav/>
-      </div> */}
+      </div>
     </div>  
     </div>
   )
