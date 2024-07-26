@@ -4,6 +4,7 @@ import React, { forwardRef, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/components/ui/animated-beam";
+import { BorderBeam } from '../ui/border-beam';
 
 const Circle = forwardRef<
   HTMLDivElement,
@@ -40,6 +41,10 @@ export function MainSection() {
       className="relative flex flex-col h-full w-full items-center justify-center px-2 md:px-10 overflow-hidden md:shadow-xl"
       ref={containerRef}
     >
+      <div className='hidden md:block'>
+      <img src="/space/moon.png" alt="" className='w-44 fixed top-20 right-0' />
+      <img src="/space/saturn.png" alt="" className='w-24 fixed top-24 right-44 opacity-30' />
+      </div>
           <div className='fixed inset-0 bg-black bg-contain bg-repeat-x bg-center opacity-20 pointer-events-none'></div>
           <div className='absolute h-screen inset-0 bg-bg5 bg-cover bg-center opacity-15 pointer-events-none flex items-center justify-center'></div>
         <Particles className="absolute inset-0" quantity={180} ease={80} color='#fff' refresh />
@@ -114,10 +119,11 @@ export function MainSection() {
         endYOffset={10}
         reverse
       />
-         <div className='flex items-center justify-center absolute bottom-12'>
+         <div className='flex items-center justify-center absolute bottom-12 border border-gray-600 p-2'>
          <h2 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-2xl md:text-4xl uppercase">
             Discover the Heroes 
           </h2>
+          <BorderBeam/>
          </div>
     </div>
   );

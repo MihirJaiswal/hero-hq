@@ -9,6 +9,7 @@ const HomeHeader = () => {
     <div className='fixed w-full top-0 z-50 bg-mainb backdrop-blur-sm  border-gray-600 lg:backdrop-blur-sm'>
         <div className='flex justify-between items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4'>
         <a href="/" className='flex items-center w-[12rem] xl:mr-8'>
+        <p className='text-gray-200 font-extrabold text-4xl max-lg:hidden uppercase'>Hero-</p>
             <Image
             alt='logo'
             src={logo}
@@ -16,7 +17,7 @@ const HomeHeader = () => {
             height={42}
             className='max-sm:size-10 m-2'
             />
-            <p className='text-gray-200 font-bold text-2xl max-lg:hidden uppercase'>Hero-HQ</p>
+           
         </a>
         <div>
         <HomeNav/>
