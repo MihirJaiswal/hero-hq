@@ -6,7 +6,7 @@ const Container = () => {
   return (
     <div className='bg-bg2'>
         <section
-      className={`md:bg-bg3 text-white md:p-8 p-3 shadow-lg mx-6  relative overflow-hidden transition-opacity duration-700 ease-out transform border border-gray-500`}
+      className={`md:bg-bg3 text-white md:p-8 p-3 shadow-lg md:mx-6 relative overflow-hidden transition-opacity duration-700 ease-out transform border-t border-gray-700  `}
     >
         <Superhero/>
       

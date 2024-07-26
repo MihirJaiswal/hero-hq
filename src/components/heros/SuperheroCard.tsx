@@ -18,8 +18,8 @@ interface SuperheroCardProps {
 const SuperheroCard: React.FC<SuperheroCardProps> = ({ superhero, imageSrc }) => {
   return (
     <Link href={`/superhero/${superhero.id}`}>
-      <div className="relative flex flex-col text-gray-700 bg-gray-900 border border-gray-500 shadow-md bg-clip-border w-72 transform transition-transform hover:scale-105 hover:shadow-lg">
-        <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-bg2 backdrop-blur-sm  border border-gray-600 h-60">
+      <div className="relative flex flex-col text-gray-700 bg-bg2 border border-gray-600 shadow-md bg-clip-border w-72 transform transition-transform hover:scale-105 hover:shadow-lg">
+        <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-bg2 backdrop-blur-sm  h-60">
           <Image
             src={imageSrc}
             alt={superhero.name}

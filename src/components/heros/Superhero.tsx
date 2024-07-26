@@ -90,12 +90,12 @@ const Superhero = () => {
   }
 
   return (
-    <div className="min-h-screen md:bg-white/10 backdrop-blur-md border border-black p-6 relative">
+    <div className="min-h-screen backdrop-blur-md border border-black p-6 relative">
         <div className="relative mx-auto max-w-5xl text-center flex flex-col items-center justify-center">
           <div>
             <img src="/logo.png" alt="Hero HQ Logo" className='w-24' />
           </div>
-          <h2 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-3xl sm:text-4xl">
+          <h2 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-2xl md:text-4xl">
             Discover the Heroes Behind the Legends
           </h2>
         </div>
@@ -111,11 +111,11 @@ const Superhero = () => {
         className="p-2 w-full text-white focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-900"
       />
     </div>
-    <div className="flex flex-wrap justify-center gap-4 w-full md:w-auto">
+    <div className="flex flex-wrap justify-center gap-5 w-full md:w-auto">
     <select
         name="publisher"
         onChange={handleFilterChange}
-        className="p-2 border border-gray-300 bg-gray-900 text-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-44"
+        className="p-2 border border-gray-500 bg-gray-900 text-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-36 w-32"
       >
         <option value="">All Publishers</option>
         <option value="Marvel Comics">Marvel Comics</option>
@@ -125,7 +125,7 @@ const Superhero = () => {
       <select
         name="alignment"
         onChange={handleFilterChange}
-        className="p-2 border border-gray-300 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-44"
+        className="p-2 border border-gray-500 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-36 w-32"
       >
         <option value="">All Alignments</option>
         <option value="good">Good</option>
@@ -135,7 +135,7 @@ const Superhero = () => {
       <select
         name="gender"
         onChange={handleFilterChange}
-        className="p-2 border border-gray-300 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-44"
+        className="p-2 border border-gray-500 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-36 w-32" 
       >
         <option value="">All Genders</option>
         <option value="Male">Male</option>
@@ -145,7 +145,7 @@ const Superhero = () => {
       <select
         name="race"
         onChange={handleFilterChange}
-        className="p-2 border border-gray-300 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-44"
+        className="p-2 border border-gray-500 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-36 w-32"
       >
         <option value="">All Species</option>
         <option value="Human">Human</option>
@@ -176,6 +176,8 @@ const Superhero = () => {
           </button>
         </div>
       )}
+      <div className="absolute top-0 right-0 z-0 md:h-1/3 h-44  w-full" style={{ backgroundImage: 'linear-gradient(to right top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
+      <div className="absolute top-0 right-0 z-0 md:h-1/3 h-44 w-full" style={{ backgroundImage: 'linear-gradient(to left top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
     </div>
   );
 };
