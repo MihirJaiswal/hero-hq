@@ -133,7 +133,7 @@ export function MainSection() {
 const Icons = {
     captainamerica: () => (
       <div className="shining-border">
-        <img src="/icons/thepunisher.png" alt="icon" className="rounded-full" />
+        <img src="/icons/scarletwitch.png" alt="icon" className="rounded-full" />
       </div>
     ),
     HQ: () => (
@@ -148,12 +148,12 @@ const Icons = {
     ),
     spiderman: () => (
       <div className="shining-border">
-        <img src="/icons/hawkeye.png" alt="icon" className="rounded-full" />
+        <img src="/icons/spiderman.png" alt="icon" className="rounded-full" />
       </div>
     ),
     batman: () => (
       <div className="shining-border">
-        <img src="/icons/batman.png" alt="icon" className="rounded-full" />
+        <img src="/icons/hydra.png" alt="icon" className="rounded-full" />
       </div>
     ),
     superman: () => (
