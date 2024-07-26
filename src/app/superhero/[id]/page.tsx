@@ -182,7 +182,7 @@ const SuperheroDetail = () => {
     { name: 'Height', value: height }
   ];
 
-  const barColors = ['#4c46a3', '#387953', '#b28530', '#b35900', '#302973', '#909233'];
+  const barColors = ['#2c22e6', '#e62020', '#dbd512', '#2d9404', '#302973', '#6a2e8c'];
 
 
   return (
@@ -391,7 +391,7 @@ const SuperheroDetail = () => {
                  <Bar
                    dataKey="value"
                    barSize={30}
-                   fill="#8884d8"
+                   fill="#0d378c"
                  />
                  <ReferenceLine y={averageHeight} stroke="red" label="Average Height" />
                </BarChart>
@@ -424,7 +424,7 @@ const SuperheroDetail = () => {
           <Bar
             dataKey="value"
             barSize={15}
-            fill="#8884d8"
+            fill="#0d378c"
           />
           <ReferenceLine y={averageHeight} stroke="red" label="Average Height" />
         </BarChart>

@@ -142,17 +142,6 @@ const Superhero = () => {
         <option value="Female">Female</option>
         {/* Add more genders as needed */}
       </select>
-      <select
-        name="race"
-        onChange={handleFilterChange}
-        className="p-2 border border-gray-500 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-36 w-32"
-      >
-        <option value="">All Species</option>
-        <option value="Human">Human</option>
-        <option value="Mutant">Mutant</option>
-        <option value="Alien">Alien</option>
-        {/* Add more species as needed */}
-      </select>
     </div>
   </div>
 </div>
