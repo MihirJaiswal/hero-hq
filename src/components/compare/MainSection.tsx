@@ -41,13 +41,13 @@ export function MainSection() {
       className="relative flex flex-col h-full w-full items-center justify-center px-2 md:px-10 overflow-hidden md:shadow-xl"
       ref={containerRef}
     >
+        <Particles className="absolute inset-0" quantity={100} ease={80} color='#fff' refresh />
       <div className='hidden md:block'>
       <img src="/space/moon.png" alt="" className='w-44 fixed top-20 right-0' />
       <img src="/space/saturn.png" alt="" className='w-24 absolute top-24 right-44 opacity-30' />
       </div>
           <div className='fixed inset-0 bg-black bg-contain bg-repeat-x bg-center opacity-20 pointer-events-none'></div>
-          <div className='absolute h-screen inset-0 bg-bg5 bg-cover bg-center opacity-15 pointer-events-none flex items-center justify-center'></div>
-        <Particles className="absolute inset-0" quantity={180} ease={80} color='#fff' refresh />
+          <div className='absolute h-screen inset-0 bg-bg5 bg-cover bg-center opacity-85 pointer-events-none flex items-center justify-center'></div>
       <div className="flex size-full flex-col max-w-lg max-h-[200px] items-stretch justify-between gap-10  -mt-14">
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div1Ref}>
@@ -133,7 +133,7 @@ export function MainSection() {
 const Icons = {
     captainamerica: () => (
       <div className="shining-border">
-        <img src="/icons/captainamerica.png" alt="icon" className="rounded-full" />
+        <img src="/icons/thepunisher.png" alt="icon" className="rounded-full" />
       </div>
     ),
     HQ: () => (
@@ -143,12 +143,12 @@ const Icons = {
     ),
     ironman: () => (
       <div className="shining-border">
-        <img src="/icons/ironman.png" alt="icon" className="rounded-full" />
+        <img src="/icons/deadpool.png" alt="icon" className="rounded-full" />
       </div>
     ),
     spiderman: () => (
       <div className="shining-border">
-        <img src="/icons/spiderman.png" alt="icon" className="rounded-full" />
+        <img src="/icons/hawkeye.png" alt="icon" className="rounded-full" />
       </div>
     ),
     batman: () => (
@@ -158,13 +158,13 @@ const Icons = {
     ),
     superman: () => (
       <div className="shining-border">
-        <img src="/icons/superman1.png" alt="icon" className="rounded-full" />
+        <img src="/icons/drstrange.png" alt="icon" className="rounded-full" />
       </div>
     ),
     flash: () => (
       <div className="shining-border">
         <img
-          src="/icons/flash.png"
+          src="/icons/daredevil.png"
           alt="icon"
           className="rounded-full"
         />

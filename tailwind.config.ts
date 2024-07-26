@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       backgroundImage: {
-        "bg5":"url('/153895.jpg')",
+        "bg5":"url('/Batman-Logo.png')",
         "bg4":"linear-gradient(to top, #000000, #000000, #000000, #000000, #000000, #080103, #0e0207, #13030c, #190616, #1a0c20, #16112c, #051738);",
         "bg3":"linear-gradient(to bottom, #070a26, #060c24, #060d22, #070e1f, #080f1d, #090f1b, #090f19, #0a0f17, #0a0e15, #090d13, #090b11, #080a0e);",
         "bg2":"linear-gradient(to bottom, #1a2841, #17243b, #142035, #121c2f, #0f1829, #0e1625, #0d1421, #0b111d, #0a101a, #090e16, #090c13, #080a0e);",
