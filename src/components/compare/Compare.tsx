@@ -16,6 +16,7 @@ import {
   CartesianGrid,
 } from 'recharts';
 import { GlareCardDemo } from '../Glare';
+import { GlareCard } from '../ui/glare-card';
 
 // Define types for superhero data
 interface Superhero {
@@ -100,7 +101,7 @@ const SuperheroCompare = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 ">
         {/* Hero 1 */}
         <div className="col-span-1 flex flex-col items-center justify-center ">
-          <div className="pb-8 w-full px-6">
+          <div className="pb-8 w-full px-6 text-white">
             <Select
               classNamePrefix="dark-select"
               className="w-full"
@@ -149,15 +150,15 @@ const SuperheroCompare = () => {
                 <img
                   src={hero1.images.lg}
                   alt={hero1.name}
-                  className="w-full h-full object-cover shimmer border border-gray-600 rounded-md"
+                  className="w-full h-full object-cover shimmer border border-gray-600"
                 />
               </div>
               <div className='text-gray-300 flex flex-col items-start gap-2'>
-                <p><FaRuler className='inline-block mr-2'/> <span className='text-white'>Height:</span> {hero1.appearance.height[1]}</p>
-                <p><FaWeightHanging className='inline-block mr-2'/> <span className='text-white'>Weight:</span> {hero1.appearance.weight[1]}</p>
-                <p><FaGenderless className='inline-block mr-2'/> <span className='text-white'>Gender:</span> {hero1.appearance.gender}</p>
-                <p><FaUser className='inline-block mr-2'/> <span className='text-white'>Race:</span> {hero1.appearance.race}</p>
-                <p><FaBuilding className='inline-block mr-2'/> <span className='text-white'>Publisher:</span> {hero1.biography.publisher}</p>
+                <p><FaRuler className='inline-block mr-2 text-red-600'/> <span className='text-white'>Height:</span> {hero1.appearance.height[1]}</p>
+                <p><FaWeightHanging className='inline-block mr-2 text-red-600'/> <span className='text-white'>Weight:</span> {hero1.appearance.weight[1]}</p>
+                <p><FaGenderless className='inline-block mr-2 text-red-600'/> <span className='text-white'>Gender:</span> {hero1.appearance.gender}</p>
+                <p><FaUser className='inline-block mr-2 text-red-600'/> <span className='text-white'>Race:</span> {hero1.appearance.race}</p>
+                <p><FaBuilding className='inline-block mr-2 text-red-600'/> <span className='text-white'>Publisher:</span> {hero1.biography.publisher}</p>
               </div>
             </div>
           ) : (
@@ -182,8 +183,8 @@ const SuperheroCompare = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey={hero1?.name || 'Hero 1'} fill="#8884d8" />
-                <Bar dataKey={hero2?.name || 'Hero 2'} fill="#82ca9d" />
+                <Bar dataKey={hero1?.name || 'Hero 1'} fill="#c91a14" />
+                <Bar dataKey={hero2?.name || 'Hero 2'} fill="#1a14c9" />
               </BarChart>
               <BarChart width={350} height={250} data={heightData}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -191,7 +192,7 @@ const SuperheroCompare = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="height" fill="#8884d8" />
+                <Bar dataKey="height" fill="#6604bd" />
               </BarChart>
             </>
           ) : (
@@ -252,15 +253,15 @@ const SuperheroCompare = () => {
                 <img
                   src={hero2.images.lg}
                   alt={hero2.name}
-                  className="w-full h-full object-cover shimmer border border-gray-600 rounded-md"
+                  className="w-full h-full object-cover shimmer border border-gray-600"
                 />
               </div>
               <div className='text-gray-300 flex flex-col items-start gap-2'>
-                <p><FaRuler className='inline-block mr-2'/> <span className='text-white'>Height:</span> {hero2.appearance.height[1]}</p>
-                <p><FaWeightHanging className='inline-block mr-2'/> <span className='text-white'>Weight:</span> {hero2.appearance.weight[1]}</p>
-                <p><FaGenderless className='inline-block mr-2'/> <span className='text-white'>Gender:</span> {hero2.appearance.gender}</p>
-                <p><FaUser className='inline-block mr-2'/> <span className='text-white'>Race:</span> {hero2.appearance.race}</p>
-                <p><FaBuilding className='inline-block mr-2'/> <span className='text-white'>Publisher:</span> {hero2.biography.publisher}</p>
+                <p><FaRuler className='inline-block mr-2 text-blue-600'/> <span className='text-white'>Height:</span> {hero2.appearance.height[1]}</p>
+                <p><FaWeightHanging className='inline-block mr-2 text-blue-600'/> <span className='text-white'>Weight:</span> {hero2.appearance.weight[1]}</p>
+                <p><FaGenderless className='inline-block mr-2 text-blue-600'/> <span className='text-white'>Gender:</span> {hero2.appearance.gender}</p>
+                <p><FaUser className='inline-block mr-2 text-blue-600'/> <span className='text-white'>Race:</span> {hero2.appearance.race}</p>
+                <p><FaBuilding className='inline-block mr-2 text-blue-600'/> <span className='text-white'>Publisher:</span> {hero2.biography.publisher}</p>
               </div>
             </div>
           ) : (
