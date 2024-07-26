@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import Select from 'react-select';
 import classNames from 'classnames';
-import { FaArrowLeft, FaBirthdayCake, FaUserShield, FaBookOpen, FaTag, FaMapMarkerAlt, FaGlasses, FaUsers, FaGenderless, FaEye, FaRuler, FaWeightHanging, FaUser } from 'react-icons/fa';
+import { FaGenderless, FaRuler, FaWeightHanging, FaUser, FaBuilding } from 'react-icons/fa';
 
 import {
   BarChart,
@@ -144,21 +144,21 @@ const SuperheroCompare = () => {
           </div>
 
           {hero1 ? (
-            <div className="bg-bg2 p-6 shadow-md border border-gray-600 max-w-sm">
+            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm">
               <div className="relative w-full h-72 mb-4">
                 <img
                   src={hero1.images.lg}
                   alt={hero1.name}
-                  className="w-full h-full object-cover shimmer border border-gray-600"
+                  className="w-full h-full object-cover shimmer border border-gray-600 rounded-md"
                 />
               </div>
-              <div className='text-gray-300 flex flex-col items-start gap-1'>
-                <p><span className='text-white'>Height:</span> {hero1.appearance.height[1]}</p>
-                <p><span className='text-white'>Weight:</span> {hero1.appearance.weight[1]}</p>
-                <p><span className='text-white'>Gender:</span> {hero1.appearance.gender}</p>
-                <p><span className='text-white'>Race:</span> {hero1.appearance.race}</p>
-                <p><span className='text-white'>Publisher:</span> {hero1.biography.publisher}</p>
-              </div> {/* Added publisher */}
+              <div className='text-gray-300 flex flex-col items-start gap-2'>
+                <p><FaRuler className='inline-block mr-2'/> <span className='text-white'>Height:</span> {hero1.appearance.height[1]}</p>
+                <p><FaWeightHanging className='inline-block mr-2'/> <span className='text-white'>Weight:</span> {hero1.appearance.weight[1]}</p>
+                <p><FaGenderless className='inline-block mr-2'/> <span className='text-white'>Gender:</span> {hero1.appearance.gender}</p>
+                <p><FaUser className='inline-block mr-2'/> <span className='text-white'>Race:</span> {hero1.appearance.race}</p>
+                <p><FaBuilding className='inline-block mr-2'/> <span className='text-white'>Publisher:</span> {hero1.biography.publisher}</p>
+              </div>
             </div>
           ) : (
             <div>
@@ -170,7 +170,7 @@ const SuperheroCompare = () => {
         {/* Comparison Results */}
         <div
           className={classNames(
-            "col-span-1 md:col-span-2 flex flex-col md:flex-row items-center justify-center z-50",
+            "col-span-1 md:col-span-2 flex flex-col md:flex-row items-center justify-center z-40",
             { "bg-gray-950 border border-gray-600 p-8 md:p-0": hero1 && hero2 }
           )}
         >
@@ -196,13 +196,13 @@ const SuperheroCompare = () => {
             </>
           ) : (
             <div className="flex flex-col items-center justify-center h-44 md:hidden  ">
-              <p className="text-lg font-bold text-gray-700 border bg-white/60 p-2">Choose heroes to compare</p>
+              <p className="text-lg font-bold text-gray-700 border bg-white/60 p-2 rounded-md">Choose heroes to compare</p>
             </div>
           )}
         </div>
         
         {/* Hero 2 */}
-        <div className="col-span-1 flex flex-col items-center">
+        <div className="col-span-1 flex flex-col items-center justify-center">
           <div className="pb-8 w-full px-6">
             <Select
               classNamePrefix="dark-select"
@@ -247,21 +247,21 @@ const SuperheroCompare = () => {
           </div>
 
           {hero2 ? (
-            <div className="bg-bg2 p-6 shadow-md border border-gray-600 max-w-sm mb-6">
+            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm">
               <div className="relative w-full h-72 mb-4">
                 <img
                   src={hero2.images.lg}
                   alt={hero2.name}
-                  className="w-full h-full object-cover shimmer border border-gray-600"
+                  className="w-full h-full object-cover shimmer border border-gray-600 rounded-md"
                 />
               </div>
-              <div className='text-gray-300 flex flex-col items-start gap-1'>
-                <p><span className='text-white'>Height:</span> {hero2.appearance.height[1]}</p>
-                <p><span className='text-white'>Weight:</span> {hero2.appearance.weight[1]}</p>
-                <p><span className='text-white'>Gender:</span> {hero2.appearance.gender}</p>
-                <p><span className='text-white'>Race:</span> {hero2.appearance.race}</p>
-                <p><span className='text-white'>Publisher:</span> {hero2.biography.publisher}</p>
-              </div> {/* Added publisher */}
+              <div className='text-gray-300 flex flex-col items-start gap-2'>
+                <p><FaRuler className='inline-block mr-2'/> <span className='text-white'>Height:</span> {hero2.appearance.height[1]}</p>
+                <p><FaWeightHanging className='inline-block mr-2'/> <span className='text-white'>Weight:</span> {hero2.appearance.weight[1]}</p>
+                <p><FaGenderless className='inline-block mr-2'/> <span className='text-white'>Gender:</span> {hero2.appearance.gender}</p>
+                <p><FaUser className='inline-block mr-2'/> <span className='text-white'>Race:</span> {hero2.appearance.race}</p>
+                <p><FaBuilding className='inline-block mr-2'/> <span className='text-white'>Publisher:</span> {hero2.biography.publisher}</p>
+              </div>
             </div>
           ) : (
             <div>
