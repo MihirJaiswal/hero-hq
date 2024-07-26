@@ -75,8 +75,8 @@ const SuperheroImage = ({ src, alt }: { src: string; alt: string }) => {
   return (
     <div className="relative w-full h-[500px] bg-bg2">
       {loading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-200 rounded-lg">
-          Loading image...
+        <div className='flex items-center justify-center h-full bg-bg1'>
+          <Loader/>
         </div>
       )}
       <Image

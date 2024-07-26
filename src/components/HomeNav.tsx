@@ -26,8 +26,8 @@ function HomeNav() {
                 key={item.label}
                 href={item.route}
                 onClick={handleClick} 
-                className={`block relative font-code text-2xl uppercase text-n-1 transition-colors text-red-500 hover:text-white ${
-                  item.route === pathname ? "lg:hidden" : ""
+                className={`block relative font-code text-2xl uppercase text-n-1 transition-colors  hover:text-white ${
+                  item.route === pathname ? "text-red-600" : "text-white"
                 } px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${
                   item.route === pathname
                     ? "z-2 lg:text-n-1"

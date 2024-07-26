@@ -93,14 +93,14 @@ const Superhero = () => {
     <div className="min-h-screen backdrop-blur-md border border-black p-6 relative">
         <div className="relative mx-auto max-w-5xl text-center flex flex-col items-center justify-center">
           <div>
-            <img src="/logo.png" alt="Hero HQ Logo" className='w-24' />
+            <img src="/logo.png" alt="Hero HQ Logo" className='w-24 mb-2' />
           </div>
           <h2 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-2xl md:text-4xl">
             Discover the Heroes Behind the Legends
           </h2>
         </div>
         <div className="flex flex-col items-center my-12">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 relative z-40">
         <div className="flex items-center border border-gray-300 bg-gray-900 rounded-lg overflow-hidden flex-1">
       <FaSearch className="text-gray-500 ml-2" />
       <input

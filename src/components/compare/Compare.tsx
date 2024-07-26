@@ -1,9 +1,11 @@
 'use client';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FaArrowLeft } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 import Select from 'react-select';
+import classNames from 'classnames';
+import { FaArrowLeft, FaBirthdayCake, FaUserShield, FaBookOpen, FaTag, FaMapMarkerAlt, FaGlasses, FaUsers, FaGenderless, FaEye, FaRuler, FaWeightHanging, FaUser } from 'react-icons/fa';
+
 import {
   BarChart,
   Bar,
@@ -12,20 +14,18 @@ import {
   Tooltip,
   Legend,
   CartesianGrid,
-  Cell,
 } from 'recharts';
+import { GlareCardDemo } from '../Glare';
 
 // Define types for superhero data
 interface Superhero {
   id: number;
   name: string;
-  biography: {
-    'full-name': string;
-    'alter-egos': string;
-    'place-of-birth': string;
-    'first-appearance': string;
-    publisher: string;
-    alignment: string;
+  appearance: {
+    gender: string;
+    race: string;
+    height: string[];
+    weight: string[];
   };
   images: {
     lg: string;
@@ -37,6 +37,9 @@ interface Superhero {
     durability: number;
     power: number;
     combat: number;
+  };
+  biography: {
+    publisher: string;
   };
 }
 
@@ -79,79 +82,194 @@ const SuperheroCompare = () => {
   };
 
   const powerStatsData = [
-    { name: 'Intelligence', hero1: hero1?.powerstats.intelligence, hero2: hero2?.powerstats.intelligence },
-    { name: 'Strength', hero1: hero1?.powerstats.strength, hero2: hero2?.powerstats.strength },
-    { name: 'Speed', hero1: hero1?.powerstats.speed, hero2: hero2?.powerstats.speed },
-    { name: 'Durability', hero1: hero1?.powerstats.durability, hero2: hero2?.powerstats.durability },
-    { name: 'Power', hero1: hero1?.powerstats.power, hero2: hero2?.powerstats.power },
-    { name: 'Combat', hero1: hero1?.powerstats.combat, hero2: hero2?.powerstats.combat },
+    { name: 'Intelligence', [hero1?.name || 'Hero 1']: hero1?.powerstats.intelligence, [hero2?.name || 'Hero 2']: hero2?.powerstats.intelligence },
+    { name: 'Strength', [hero1?.name || 'Hero 1']: hero1?.powerstats.strength, [hero2?.name || 'Hero 2']: hero2?.powerstats.strength },
+    { name: 'Speed', [hero1?.name || 'Hero 1']: hero1?.powerstats.speed, [hero2?.name || 'Hero 2']: hero2?.powerstats.speed },
+    { name: 'Durability', [hero1?.name || 'Hero 1']: hero1?.powerstats.durability, [hero2?.name || 'Hero 2']: hero2?.powerstats.durability },
+    { name: 'Power', [hero1?.name || 'Hero 1']: hero1?.powerstats.power, [hero2?.name || 'Hero 2']: hero2?.powerstats.power },
+    { name: 'Combat', [hero1?.name || 'Hero 1']: hero1?.powerstats.combat, [hero2?.name || 'Hero 2']: hero2?.powerstats.combat },
+  ];
+
+  const heightData = [
+    { name: hero1?.name || 'Hero 1', height: parseFloat(hero1?.appearance.height[1].replace(' cm', '') || '0') },
+    { name: hero2?.name || 'Hero 2', height: parseFloat(hero2?.appearance.height[1].replace(' cm', '') || '0') },
   ];
 
   return (
-    <div className="p-6 bg-white shadow-md rounded-md">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold">Compare Superheroes</h2>
-        <button
-          onClick={() => router.back()}
-          className="p-2 bg-red-600 text-white rounded-full flex items-center justify-center"
-        >
-          <FaArrowLeft className="text-xl" />
-        </button>
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700">Select Hero 1</label>
-        <Select
-          className="w-full"
-          onChange={(selectedOption) => handleHeroChange(selectedOption, setHero1)}
-          options={searchResults}
-          placeholder="Search for Hero 1"
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700">Select Hero 2</label>
-        <Select
-          className="w-full"
-          onChange={(selectedOption) => handleHeroChange(selectedOption, setHero2)}
-          options={searchResults}
-          placeholder="Search for Hero 2"
-        />
-      </div>
-      {hero1 && hero2 && (
-        <div className="mt-6">
-          <h3 className="text-xl font-semibold mb-4">Comparison Results</h3>
-          <div className="flex flex-col md:flex-row justify-around items-center">
-            <div className="bg-white p-4 shadow-md rounded-md mb-4 md:mb-0">
-              <h3 className="text-2xl font-semibold">{hero1.name}</h3>
-              <img src={hero1.images.lg} alt={hero1.name} className="w-full h-64 object-cover mb-4 rounded-md" />
-              <p><strong>Full Name:</strong> {hero1.biography['full-name']}</p>
-              <p><strong>Alter Egos:</strong> {hero1.biography['alter-egos']}</p>
-              <p><strong>Place of Birth:</strong> {hero1.biography['place-of-birth']}</p>
-              <p><strong>First Appearance:</strong> {hero1.biography['first-appearance']}</p>
-              <p><strong>Publisher:</strong> {hero1.biography.publisher}</p>
-              <p><strong>Alignment:</strong> {hero1.biography.alignment}</p>
-            </div>
-            <div className="bg-white p-4 shadow-md rounded-md">
-              <h3 className="text-2xl font-semibold">{hero2.name}</h3>
-              <img src={hero2.images.lg} alt={hero2.name} className="w-full h-64 object-cover mb-4 rounded-md" />
-              <p><strong>Full Name:</strong> {hero2.biography['full-name']}</p>
-              <p><strong>Alter Egos:</strong> {hero2.biography['alter-egos']}</p>
-              <p><strong>Place of Birth:</strong> {hero2.biography['place-of-birth']}</p>
-              <p><strong>First Appearance:</strong> {hero2.biography['first-appearance']}</p>
-              <p><strong>Publisher:</strong> {hero2.biography.publisher}</p>
-              <p><strong>Alignment:</strong> {hero2.biography.alignment}</p>
-            </div>
+    <div className="rounded-md md:p-6 py-14 md:pt-24 w-full md:absolute md:top-7">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 ">
+        {/* Hero 1 */}
+        <div className="col-span-1 flex flex-col items-center justify-center ">
+          <div className="pb-8 w-full px-6">
+            <Select
+              classNamePrefix="dark-select"
+              className="w-full"
+              onChange={(selectedOption) => handleHeroChange(selectedOption, setHero1)}
+              options={searchResults}
+              placeholder="Search for Hero 1"
+              styles={{
+                control: (provided) => ({
+                  ...provided,
+                  backgroundColor: '#000000',
+                  borderColor: '#ffff',
+                  color: '#fff',
+                  padding: '0.5rem',
+                  boxShadow: 'none',
+                }),
+                placeholder: (provided) => ({
+                  ...provided,
+                  color: '#fffff',
+                }),
+                singleValue: (provided) => ({
+                  ...provided,
+                  color: '#fffff',
+                }),
+                menu: (provided) => ({
+                  ...provided,
+                  backgroundColor: '#000000',
+                  borderColor: '#444',
+                  color: '#fffff',
+                }),
+                option: (provided, state) => ({
+                  ...provided,
+                  backgroundColor: state.isSelected ? '#000000' : '#000000',
+                  color: state.isSelected ? '#fff' : '#bbb',
+                  '&:hover': {
+                    backgroundColor: '#000000',
+                    color: '#fff',
+                  },
+                }),
+              }}
+            />
           </div>
-          <BarChart width={600} height={300} data={powerStatsData} className="mt-6">
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="hero1" fill="#8884d8" />
-            <Bar dataKey="hero2" fill="#82ca9d" />
-          </BarChart>
+
+          {hero1 ? (
+            <div className="bg-bg2 p-6 shadow-md border border-gray-600 max-w-sm">
+              <div className="relative w-full h-72 mb-4">
+                <img
+                  src={hero1.images.lg}
+                  alt={hero1.name}
+                  className="w-full h-full object-cover shimmer border border-gray-600"
+                />
+              </div>
+              <div className='text-gray-300 flex flex-col items-start gap-1'>
+                <p><span className='text-white'>Height:</span> {hero1.appearance.height[1]}</p>
+                <p><span className='text-white'>Weight:</span> {hero1.appearance.weight[1]}</p>
+                <p><span className='text-white'>Gender:</span> {hero1.appearance.gender}</p>
+                <p><span className='text-white'>Race:</span> {hero1.appearance.race}</p>
+                <p><span className='text-white'>Publisher:</span> {hero1.biography.publisher}</p>
+              </div> {/* Added publisher */}
+            </div>
+          ) : (
+            <div>
+              <GlareCardDemo/>
+            </div>
+          )}
         </div>
-      )}
+        
+        {/* Comparison Results */}
+        <div
+          className={classNames(
+            "col-span-1 md:col-span-2 flex flex-col md:flex-row items-center justify-center z-50",
+            { "bg-gray-950 border border-gray-600 p-8 md:p-0": hero1 && hero2 }
+          )}
+        >
+          {hero1 && hero2 ? (
+            <>
+              <BarChart width={350} height={250} data={powerStatsData} className="mb-6">
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey={hero1?.name || 'Hero 1'} fill="#8884d8" />
+                <Bar dataKey={hero2?.name || 'Hero 2'} fill="#82ca9d" />
+              </BarChart>
+              <BarChart width={350} height={250} data={heightData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="height" fill="#8884d8" />
+              </BarChart>
+            </>
+          ) : (
+            <div className="flex flex-col items-center justify-center h-44 md:hidden  ">
+              <p className="text-lg font-bold text-gray-700 border bg-white/60 p-2">Choose heroes to compare</p>
+            </div>
+          )}
+        </div>
+        
+        {/* Hero 2 */}
+        <div className="col-span-1 flex flex-col items-center">
+          <div className="pb-8 w-full px-6">
+            <Select
+              classNamePrefix="dark-select"
+              className="w-full"
+              onChange={(selectedOption) => handleHeroChange(selectedOption, setHero2)}
+              options={searchResults}
+              placeholder="Search for Hero 2"
+              styles={{
+                control: (provided) => ({
+                  ...provided,
+                  backgroundColor: '#000000',
+                  borderColor: '#ffff',
+                  color: '#fff',
+                  padding: '0.5rem',
+                  boxShadow: 'none',
+                }),
+                placeholder: (provided) => ({
+                  ...provided,
+                  color: '#fffff',
+                }),
+                singleValue: (provided) => ({
+                  ...provided,
+                  color: '#fffff',
+                }),
+                menu: (provided) => ({
+                  ...provided,
+                  backgroundColor: '#000000',
+                  borderColor: '#444',
+                  color: '#fffff',
+                }),
+                option: (provided, state) => ({
+                  ...provided,
+                  backgroundColor: state.isSelected ? '#000000' : '#000000',
+                  color: state.isSelected ? '#fff' : '#bbb',
+                  '&:hover': {
+                    backgroundColor: '#000000',
+                    color: '#fff',
+                  },
+                }),
+              }}
+            />
+          </div>
+
+          {hero2 ? (
+            <div className="bg-bg2 p-6 shadow-md border border-gray-600 max-w-sm mb-6">
+              <div className="relative w-full h-72 mb-4">
+                <img
+                  src={hero2.images.lg}
+                  alt={hero2.name}
+                  className="w-full h-full object-cover shimmer border border-gray-600"
+                />
+              </div>
+              <div className='text-gray-300 flex flex-col items-start gap-1'>
+                <p><span className='text-white'>Height:</span> {hero2.appearance.height[1]}</p>
+                <p><span className='text-white'>Weight:</span> {hero2.appearance.weight[1]}</p>
+                <p><span className='text-white'>Gender:</span> {hero2.appearance.gender}</p>
+                <p><span className='text-white'>Race:</span> {hero2.appearance.race}</p>
+                <p><span className='text-white'>Publisher:</span> {hero2.biography.publisher}</p>
+              </div> {/* Added publisher */}
+            </div>
+          ) : (
+            <div>
+              <GlareCardDemo/>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
