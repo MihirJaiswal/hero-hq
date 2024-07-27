@@ -453,7 +453,7 @@ const SuperheroDetail = () => {
                    alt="Average Height"
                    width={500} // Adjust the width as needed
                    height={500} // Adjust the height as needed
-                   className="w-auto h-[168px] z-10"
+                   className="w-auto h-[170px] z-10"
                  />
                </div>
              </div>
@@ -481,13 +481,13 @@ const SuperheroDetail = () => {
       </div>
 
       {/* Average Height Icon */}
-      <div className="absolute top-11 right-2 md:top-4 md:right-4 flex items-center justify-center">
+      <div className="absolute top-16 right-2 md:top-4 md:right-4 flex items-center justify-center">
         <Image
           src={averageHeightIcon}
           alt="Average Height"
           width={100} // Adjust the width as needed
           height={100} // Adjust the height as needed
-          className="w-auto h-[100px]"
+          className="w-auto h-[114px]"
         />
       </div>
     </div>
