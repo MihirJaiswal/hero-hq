@@ -103,46 +103,50 @@ const SuperheroCompare = () => {
         {/* Hero 1 */}
         <div className="col-span-1 flex flex-col items-center justify-center ">
           <div className="pb-8 w-full px-6 text-white">
-            <Select
-              classNamePrefix="dark-select"
-              className="w-full"
-              onChange={(selectedOption) => handleHeroChange(selectedOption, setHero1)}
-              options={searchResults}
-              placeholder="Search for Hero 1"
-              styles={{
-                control: (provided) => ({
-                  ...provided,
+          <Select
+            classNamePrefix="dark-select"
+            className="w-full"
+            onChange={(selectedOption) => handleHeroChange(selectedOption, setHero1)}
+            options={searchResults}
+            placeholder="Search for Hero 1"
+            styles={{
+              control: (provided) => ({
+                ...provided,
+                backgroundColor: '#000000',
+                borderColor: '#fff',
+                color: '#fff',
+                padding: '0.5rem',
+                boxShadow: 'none',
+              }),
+              placeholder: (provided) => ({
+                ...provided,
+                color: '#fff',
+              }),
+              singleValue: (provided) => ({
+                ...provided,
+                color: '#fff',
+              }),
+              menu: (provided) => ({
+                ...provided,
+                backgroundColor: '#000000',
+                borderColor: '#444',
+                color: '#fff',
+              }),
+              option: (provided, state) => ({
+                ...provided,
+                backgroundColor: state.isSelected ? '#000000' : '#000000',
+                color: state.isSelected ? '#fff' : '#bbb',
+                '&:hover': {
                   backgroundColor: '#000000',
-                  borderColor: '#ffff',
                   color: '#fff',
-                  padding: '0.5rem',
-                  boxShadow: 'none',
-                }),
-                placeholder: (provided) => ({
-                  ...provided,
-                  color: '#fffff',
-                }),
-                singleValue: (provided) => ({
-                  ...provided,
-                  color: '#fffff',
-                }),
-                menu: (provided) => ({
-                  ...provided,
-                  backgroundColor: '#000000',
-                  borderColor: '#444',
-                  color: '#fffff',
-                }),
-                option: (provided, state) => ({
-                  ...provided,
-                  backgroundColor: state.isSelected ? '#000000' : '#000000',
-                  color: state.isSelected ? '#fff' : '#bbb',
-                  '&:hover': {
-                    backgroundColor: '#000000',
-                    color: '#fff',
-                  },
-                }),
-              }}
-            />
+                },
+              }),
+              input: (provided) => ({
+                ...provided,
+                color: '#fff', // Ensure the input text color is white
+              }),
+            }}
+          />
           </div>
 
           {hero1 ? (
@@ -213,7 +217,7 @@ const SuperheroCompare = () => {
         {/* Hero 2 */}
         <div className="col-span-1 flex flex-col items-center justify-center">
           <div className="pb-8 w-full px-6">
-            <Select
+          <Select
               classNamePrefix="dark-select"
               className="w-full"
               onChange={(selectedOption) => handleHeroChange(selectedOption, setHero2)}
@@ -223,24 +227,24 @@ const SuperheroCompare = () => {
                 control: (provided) => ({
                   ...provided,
                   backgroundColor: '#000000',
-                  borderColor: '#ffff',
+                  borderColor: '#fff',
                   color: '#fff',
                   padding: '0.5rem',
                   boxShadow: 'none',
                 }),
                 placeholder: (provided) => ({
                   ...provided,
-                  color: '#fffff',
+                  color: '#fff',
                 }),
                 singleValue: (provided) => ({
                   ...provided,
-                  color: '#fffff',
+                  color: '#fff',
                 }),
                 menu: (provided) => ({
                   ...provided,
                   backgroundColor: '#000000',
                   borderColor: '#444',
-                  color: '#fffff',
+                  color: '#fff',
                 }),
                 option: (provided, state) => ({
                   ...provided,
@@ -250,6 +254,10 @@ const SuperheroCompare = () => {
                     backgroundColor: '#000000',
                     color: '#fff',
                   },
+                }),
+                input: (provided) => ({
+                  ...provided,
+                  color: '#fff', // Ensure the input text color is white
                 }),
               }}
             />
