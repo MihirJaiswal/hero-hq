@@ -184,6 +184,23 @@ const SuperheroDetail = () => {
 
   const barColors = ['#2c22e6', '#e62020', '#dbd512', '#2d9404', '#302973', '#6a2e8c'];
 
+  const CustomXAxisTick = (props: any) => {
+    const { x, y, payload } = props;
+    return (
+      <text x={x} y={y} dy={16} textAnchor="middle" fill="#FF0000">
+        {payload.value}
+      </text>
+    );
+  };
+  
+  const CustomYAxisTick = (props: any) => {
+    const { x, y, payload } = props;
+    return (
+      <text x={x} y={y} dx={-4} dy={4} textAnchor="end" fill="#00FF00">
+        {payload.value}
+      </text>
+    );
+  };
 
   return (
     <div className='bg-bg1 pt-4'>
@@ -373,23 +390,22 @@ const SuperheroDetail = () => {
           )}
 
           {section === 'powerStats' && (
-            <div className="bg-bg2 backdrop-blur-sm border border-gray-300 p-6 shadow-md mb-8 hidden md:block">
-            <h2 className="text-3xl font-extrabold text-red-600 mb-6">Power Stats</h2>
-            <div className='bg-white/70 p-2'>
-            <BarChart width={600} height={300} data={powerStatsData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="value">
-                {powerStatsData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={barColors[index % barColors.length]} />
-                ))}
-              </Bar>
-            </BarChart>
-            </div>
-          </div>
+             <div className="bg-bg2 backdrop-blur-sm border border-gray-300 p-6 shadow-md mb-8 hidden md:block">
+             <h2 className="text-3xl font-extrabold text-red-600 mb-6">Power Stats</h2>
+             <div className='p-2'>
+               <BarChart width={600} height={300} data={powerStatsData}>
+                 <CartesianGrid strokeDasharray="3 3" />
+                 <XAxis dataKey="name" tick={<CustomXAxisTick />} />
+                 <YAxis tick={<CustomYAxisTick />} />
+                 <Tooltip />
+                 <Bar dataKey="value">
+                   {powerStatsData.map((entry, index) => (
+                     <Cell key={`cell-${index}`} fill={barColors[index % barColors.length]} />
+                   ))}
+                 </Bar>
+               </BarChart>
+             </div>
+           </div>
           
           )}
 
@@ -399,10 +415,9 @@ const SuperheroDetail = () => {
                     <h2 className="text-2xl font-extrabold text-red-600 mb-2">Power Stats</h2>
                     <BarChart width={300} height={300} data={powerStatsData} layout="vertical">
                       <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis type="number" />
-                      <YAxis type="category" dataKey="name" />
+                      <XAxis type="number" tick={<CustomXAxisTick />} />
+                      <YAxis type="category" dataKey="name" tick={<CustomYAxisTick />} />
                       <Tooltip />
-                      <Legend />
                       <Bar dataKey="value">
                         {powerStatsData.map((entry, index) => (
                           <Cell key={index} fill={barColors[index % barColors.length]} />
@@ -417,17 +432,17 @@ const SuperheroDetail = () => {
           {section === 'height' && (
              <div className="bg-bg2 p-6 border shadow-md mb-8 relative hidden md:block">
              <h2 className="text-3xl font-extrabold text-red-600 mb-8">Height</h2>
-             <div className="p-1 relative z-30 bg-white/80">
+             <div className="p-1 relative z-30 ">
                <BarChart width={600} height={300} data={heightData} className='z-30'>
                  <CartesianGrid strokeDasharray="3 3" />
-                 <XAxis dataKey="name" />
-                 <YAxis />
+                 <XAxis dataKey="name"  tick={<CustomXAxisTick />} />
+                 <YAxis  tick={<CustomYAxisTick />} />
                  <Tooltip />
                  <Legend />
                  <Bar
                    dataKey="value"
                    barSize={30}
-                   fill="#0d378c"
+                   fill="#1710e6"
                  />
                  <ReferenceLine y={averageHeight} stroke="red" label="Average Height" />
                </BarChart>
@@ -450,13 +465,12 @@ const SuperheroDetail = () => {
     <h2 className="text-3xl font-extrabold text-red-600 mb-8">Height</h2>
     <div className="relative">
       {/* BarChart */}
-      <div className="h-60 md:h-80 mb-6 bg-white/70">
+      <div className="h-60 md:h-80 mb-6 border pt-4 pr-4">
         <BarChart width={300} height={200} data={heightData} className='z-30'>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
+          <XAxis dataKey="name"   tick={<CustomXAxisTick />} />
+          <YAxis   tick={<CustomYAxisTick />} />
           <Tooltip />
-          <Legend />
           <Bar
             dataKey="value"
             barSize={15}
