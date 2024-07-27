@@ -145,12 +145,12 @@ const SuperheroCompare = () => {
           </div>
 
           {hero1 ? (
-            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm">
+            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl">
               <div className="relative w-full h-72 mb-4">
                 <img
                   src={hero1.images.lg}
                   alt={hero1.name}
-                  className="w-full h-full object-cover shimmer border border-gray-600"
+                  className="w-full h-full object-cover shimmer border border-gray-600  rounded-t-3xl"
                 />
               </div>
               <div className='text-gray-300 flex flex-col items-start gap-2'>
@@ -248,12 +248,12 @@ const SuperheroCompare = () => {
           </div>
 
           {hero2 ? (
-            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm">
+            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl">
               <div className="relative w-full h-72 mb-4">
                 <img
                   src={hero2.images.lg}
                   alt={hero2.name}
-                  className="w-full h-full object-cover shimmer border border-gray-600"
+                  className="w-full h-full object-cover shimmer border border-gray-600 rounded-t-3xl"
                 />
               </div>
               <div className='text-gray-300 flex flex-col items-start gap-2'>

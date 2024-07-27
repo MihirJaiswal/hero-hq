@@ -217,18 +217,7 @@ const SuperheroDetail = () => {
             >
               Appearance
             </button>
-            <button
-              className={`w-full sm:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'connections' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
-              onClick={() => setSection('connections')}
-            >
-              Connections
-            </button>
-            <button
-              className={`w-full sm:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'work' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
-              onClick={() => setSection('work')}
-            >
-              Work
-            </button>
+           
             <button
               className={`w-full sm:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'powerStats' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
               onClick={() => setSection('powerStats')}
@@ -241,12 +230,24 @@ const SuperheroDetail = () => {
             >
               Height
             </button>
+            <button
+              className={`w-full sm:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'connections' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
+              onClick={() => setSection('connections')}
+            >
+              Connections
+            </button>
+            <button
+              className={`w-full sm:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'work' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
+              onClick={() => setSection('work')}
+            >
+              Work
+            </button>
           </div>
 
 
           {/* Conditional Rendering based on selected section */}
           {section === 'biography' && (
-            <div className="bg-white/60 backdrop-blur-sm border border-gray-300 p-6 shadow-md mb-8">
+            <div className="bg-gray-100 backdrop-blur-sm border border-gray-300 p-6 shadow-md mb-8">
             <h2 className="text-3xl font-semibold text-black mb-6">Biography</h2>
             <div className="space-y-5">
               <div className="flex items-center">
@@ -279,7 +280,7 @@ const SuperheroDetail = () => {
           )}
 
           {section === 'appearance' && (
-            <div className="bg-white/60 p-8 shadow-lg mb-8 border">
+            <div className="bg-gray-100 p-8 shadow-lg mb-8 border">
             <h2 className="text-3xl font-bold text-black mb-6">Appearance</h2>
             <div className="space-y-6">
               <div className="flex items-center">
@@ -308,7 +309,7 @@ const SuperheroDetail = () => {
           )}
 
           {section === 'connections' && (
-            <div className="bg-white/60 p-6 shadow-md mb-8 border">
+            <div className="bg-gray-100 p-6 shadow-md mb-8 border">
               <h2 className="text-3xl font-semibold text-black mb-4">Connections</h2>
               <div className="space-y-4">
                 <div className="flex items-center">
@@ -324,7 +325,7 @@ const SuperheroDetail = () => {
           )}
 
           {section === 'work' && (
-            <div className="bg-white/60 p-6 border shadow-md mb-8">
+            <div className="bg-gray-100 p-6 border shadow-md mb-8">
               <h2 className="text-3xl font-semibold text-black mb-4">Work</h2>
               <div className="space-y-4">
                 <div className="flex items-center">
@@ -340,7 +341,7 @@ const SuperheroDetail = () => {
           )}
 
           {section === 'powerStats' && (
-            <div className="bg-white/70 p-6 border shadow-md mb-8 hidden md:block">
+            <div className="bg-gray-100 p-6 border shadow-md mb-8 hidden md:block">
               <h2 className="text-3xl font-semibold text-black mb-4">Power Stats</h2>
               <BarChart width={600} height={300} data={powerStatsData}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -358,7 +359,7 @@ const SuperheroDetail = () => {
           )}
 
       {section === 'powerStats' && (
-                  <div className="mb-8 md:hidden bg-white/70 p-6 border">
+                  <div className="mb-8 md:hidden bg-gray-100 p-6 border">
                     <div className="text-center mb-4">
                       <h2 className="text-2xl font-bold mb-2">Power Stats</h2>
                       <BarChart width={300} height={300} data={powerStatsData} layout="vertical">
@@ -379,7 +380,7 @@ const SuperheroDetail = () => {
             {/*height */}
 
           {section === 'height' && (
-             <div className="bg-white/70 p-6 border shadow-md mb-8 relative hidden md:block">
+             <div className="bg-gray-100 p-6 border shadow-md mb-8 relative hidden md:block">
              <h2 className="text-3xl font-semibold text-black mb-4">Height</h2>
              <div className="h-80 relative z-30">
                <BarChart width={600} height={300} data={heightData} className='z-30'>
@@ -410,7 +411,7 @@ const SuperheroDetail = () => {
           )}
 
 {section === 'height' && (
-  <div className="bg-white/70 p-4 border shadow-md mb-8 relative md:hidden">
+  <div className="bg-gray-100 p-4 border shadow-md mb-8 relative md:hidden">
     <h2 className="text-2xl font-semibold text-black mb-4">Height</h2>
     <div className="relative">
       {/* BarChart */}
