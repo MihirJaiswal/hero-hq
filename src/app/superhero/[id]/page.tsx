@@ -247,61 +247,84 @@ const SuperheroDetail = () => {
 
           {/* Conditional Rendering based on selected section */}
           {section === 'biography' && (
-            <div className="bg-gray-100 backdrop-blur-sm border border-gray-300 p-6 shadow-md mb-8">
-            <h2 className="text-3xl font-semibold text-black mb-6">Biography</h2>
-            <div className="space-y-5">
+            <div className="bg-bg2 backdrop-blur-sm border border-gray-300 p-6 shadow-md mb-8">
+            <h2 className="text-3xl font-extrabold text-red-600 mb-8">Biography</h2>
+            <div className="space-y-5 mb-2">
               <div className="flex items-center">
-                <FaUserShield className="text-gray-950 mr-4" />
-                <p className="text-gray-800 text-lg"><strong>Full Name:</strong> {superhero.biography.fullName}</p>
+                <FaUserShield className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Full Name :</span> {superhero.biography.fullName}
+                </p>
               </div>
               <div className="flex items-center">
-                <FaTag className="text-gray-950 mr-4" />
-                <p className="text-gray-800 text-lg"><strong>Alter Egos:</strong> {superhero.biography.alterEgos}</p>
+                <FaTag className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Alter Egos:</span> {superhero.biography.alterEgos}
+                </p>
               </div>
               <div className="flex items-center">
-                <FaMapMarkerAlt className="text-gray-950 mr-4" />
-                <p className="text-gray-800 text-lg"><strong>Place of Birth:</strong> {superhero.biography.placeOfBirth}</p>
+                <FaMapMarkerAlt className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Place of Birth:</span> {superhero.biography.placeOfBirth}
+                </p>
               </div>
               <div className="flex items-center">
-                <FaBirthdayCake className="text-gray-950 mr-4" />
-                <p className="text-gray-800 text-lg"><strong>First Appearance:</strong> {superhero.biography.firstAppearance}</p>
+                <FaBirthdayCake className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>First Appearance:</span> {superhero.biography.firstAppearance}
+                </p>
               </div>
               <div className="flex items-center">
-                <FaBookOpen className="text-gray-950 mr-4" />
-                <p className="text-gray-800 text-lg"><strong>Publisher:</strong> {superhero.biography.publisher}</p>
+                <FaBookOpen className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Publisher:</span> {superhero.biography.publisher}
+                </p>
               </div>
               <div className="flex items-center">
-                <FaGlasses className="text-gray-950 mr-4" />
-                <p className="text-gray-800 text-lg"><strong>Alignment:</strong> {superhero.biography.alignment}</p>
+                <FaGlasses className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Alignment:</span> {superhero.biography.alignment}
+                </p>
               </div>
             </div>
           </div>
           
+          
           )}
 
           {section === 'appearance' && (
-            <div className="bg-gray-100 p-8 shadow-lg mb-8 border">
-            <h2 className="text-3xl font-bold text-black mb-6">Appearance</h2>
-            <div className="space-y-6">
+            <div className="bg-bg2 backdrop-blur-sm border border-gray-300 p-6 shadow-md mb-8">
+            <h2 className="text-3xl font-extrabold text-red-600 mb-8">Appearance</h2>
+            <div className="space-y-5 mb-2">
               <div className="flex items-center">
-                <FaGenderless className="text-gray-950 mr-4" />
-                <p className="text-gray-800 text-lg"><strong>Gender:</strong> {superhero.appearance.gender}</p>
+                <FaGenderless className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Gender:</span> {superhero.appearance.gender}
+                </p>
               </div>
               <div className="flex items-center">
-                <FaUser className="text-gray-950 mr-4" />
-                <p className="text-gray-800"><strong>Race:</strong> {superhero.appearance.race}</p>
+                <FaUser className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Race:</span> {superhero.appearance.race}
+                </p>
               </div>
               <div className="flex items-center">
-                <FaEye className="text-gray-950 mr-4" />
-                <p className="text-gray-800"><strong>Eye Color:</strong> {superhero.appearance.eyeColor}</p>
+                <FaEye className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Eye Color:</span> {superhero.appearance.eyeColor}
+                </p>
               </div>
               <div className="flex items-center">
-                <FaRuler className="text-gray-950 mr-4" />
-                <p className="text-gray-800"><strong>Height:</strong> {superhero.appearance.height.join(', ')}</p>
+                <FaRuler className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Height:</span> {superhero.appearance.height.join(', ')}
+                </p>
               </div>
               <div className="flex items-center">
-                <FaWeightHanging className="text-gray-950 mr-4" />
-                <p className="text-gray-800"><strong>Weight:</strong> {superhero.appearance.weight.join(', ')}</p>
+                <FaWeightHanging className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Weight:</span> {superhero.appearance.weight.join(', ')}
+                </p>
               </div>
             </div>
           </div>
@@ -309,80 +332,92 @@ const SuperheroDetail = () => {
           )}
 
           {section === 'connections' && (
-            <div className="bg-gray-100 p-6 shadow-md mb-8 border">
-              <h2 className="text-3xl font-semibold text-black mb-4">Connections</h2>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <FaUsers className="text-gray-950 mr-3" />
-                  <p className="text-gray-800 text-lg"><strong>Group Affiliation:</strong> {superhero.connections.groupAffiliation}</p>
-                </div>
-                <div className="flex items-center">
-                  <FaUser className="text-gray-950 mr-3" />
-                  <p className="text-gray-800 text-lg"><strong>Relatives:</strong> {superhero.connections.relatives}</p>
-                </div>
+            <div className="bg-bg2 backdrop-blur-sm border border-gray-300 p-6 shadow-md mb-8">
+            <h2 className="text-3xl font-extrabold text-red-600 mb-8">Connections</h2>
+            <div className="space-y-5 mb-2">
+              <div className="flex items-center gap-2">
+                <FaUsers className="text-gray-50 mr-4 text-4xl" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Group Affiliation:</span> {superhero.connections.groupAffiliation}
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <FaUser className="text-gray-50 mr-4 text-4xl" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Relatives:</span> {superhero.connections.relatives}
+                </p>
               </div>
             </div>
+          </div>
           )}
 
           {section === 'work' && (
-            <div className="bg-gray-100 p-6 border shadow-md mb-8">
-              <h2 className="text-3xl font-semibold text-black mb-4">Work</h2>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <MdWork className="text-gray-950 mr-3" />
-                  <p className="text-gray-800 text-lg"><strong>Occupation:</strong> {superhero.work.occupation}</p>
-                </div>
-                <div className="flex items-center">
-                  <FaMapMarkerAlt className="text-gray-950 mr-3" />
-                  <p className="text-gray-800 text-lg"><strong>Base:</strong> {superhero.work.base}</p>
-                </div>
+            <div className="bg-bg2 backdrop-blur-sm border border-gray-300 p-6 shadow-md mb-8">
+            <h2 className="text-3xl font-extrabold text-red-600 mb-8">Work</h2>
+            <div className="space-y-5 mb-2">
+              <div className="flex items-center">
+                <MdWork className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Occupation:</span> {superhero.work.occupation}
+                </p>
+              </div>
+              <div className="flex items-center">
+                <FaMapMarkerAlt className="text-gray-50 mr-4" />
+                <p className="text-gray-300">
+                  <span className='text-gray-100 font-bold'>Base:</span> {superhero.work.base}
+                </p>
               </div>
             </div>
+          </div>
+          
           )}
 
           {section === 'powerStats' && (
-            <div className="bg-gray-100 p-6 border shadow-md mb-8 hidden md:block">
-              <h2 className="text-3xl font-semibold text-black mb-4">Power Stats</h2>
-              <BarChart width={600} height={300} data={powerStatsData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="value">
-                  {powerStatsData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={barColors[index % barColors.length]} />
-                  ))}
-                </Bar>
-              </BarChart>
+            <div className="bg-bg2 backdrop-blur-sm border border-gray-300 p-6 shadow-md mb-8 hidden md:block">
+            <h2 className="text-3xl font-extrabold text-red-600 mb-6">Power Stats</h2>
+            <div className='bg-white/70 p-2'>
+            <BarChart width={600} height={300} data={powerStatsData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="value">
+                {powerStatsData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={barColors[index % barColors.length]} />
+                ))}
+              </Bar>
+            </BarChart>
             </div>
+          </div>
+          
           )}
 
-      {section === 'powerStats' && (
-                  <div className="mb-8 md:hidden bg-gray-100 p-6 border">
-                    <div className="text-center mb-4">
-                      <h2 className="text-2xl font-bold mb-2">Power Stats</h2>
-                      <BarChart width={300} height={300} data={powerStatsData} layout="vertical">
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis type="number" />
-                        <YAxis type="category" dataKey="name" />
-                        <Tooltip />
-                        <Legend />
-                        <Bar dataKey="value">
-                          {powerStatsData.map((entry, index) => (
-                            <Cell key={index} fill={barColors[index % barColors.length]} />
-                          ))}
-                        </Bar>
-                      </BarChart>
-                    </div>
+              {section === 'powerStats' && (
+                  <div className="mb-8 md:hidden bg-bg2 backdrop-blur-sm p-6 border border-gray-300 shadow-md">
+                  <div className="text-center mb-4">
+                    <h2 className="text-2xl font-extrabold text-red-600 mb-2">Power Stats</h2>
+                    <BarChart width={300} height={300} data={powerStatsData} layout="vertical">
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis type="number" />
+                      <YAxis type="category" dataKey="name" />
+                      <Tooltip />
+                      <Legend />
+                      <Bar dataKey="value">
+                        {powerStatsData.map((entry, index) => (
+                          <Cell key={index} fill={barColors[index % barColors.length]} />
+                        ))}
+                      </Bar>
+                    </BarChart>
                   </div>
-                )}
+                </div>
+               )}
             {/*height */}
 
           {section === 'height' && (
-             <div className="bg-gray-100 p-6 border shadow-md mb-8 relative hidden md:block">
-             <h2 className="text-3xl font-semibold text-black mb-4">Height</h2>
-             <div className="h-80 relative z-30">
+             <div className="bg-bg2 p-6 border shadow-md mb-8 relative hidden md:block">
+             <h2 className="text-3xl font-extrabold text-red-600 mb-8">Height</h2>
+             <div className="p-1 relative z-30 bg-white/80">
                <BarChart width={600} height={300} data={heightData} className='z-30'>
                  <CartesianGrid strokeDasharray="3 3" />
                  <XAxis dataKey="name" />
@@ -411,11 +446,11 @@ const SuperheroDetail = () => {
           )}
 
 {section === 'height' && (
-  <div className="bg-gray-100 p-4 border shadow-md mb-8 relative md:hidden">
-    <h2 className="text-2xl font-semibold text-black mb-4">Height</h2>
+  <div className="bg-bg2 p-4 border shadow-md mb-8 relative md:hidden">
+    <h2 className="text-3xl font-extrabold text-red-600 mb-8">Height</h2>
     <div className="relative">
       {/* BarChart */}
-      <div className="h-60 md:h-80 mb-6">
+      <div className="h-60 md:h-80 mb-6 bg-white/70">
         <BarChart width={300} height={200} data={heightData} className='z-30'>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
