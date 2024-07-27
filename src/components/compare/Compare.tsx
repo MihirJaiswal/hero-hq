@@ -14,7 +14,9 @@ import {
   Tooltip,
   Legend,
   CartesianGrid,
-  Cell
+  Cell,
+  PieChart,
+  Pie
 } from 'recharts';
 import { GlareCardDemo } from '../Glare';
 import { GlareCard } from '../ui/glare-card';
@@ -45,12 +47,18 @@ interface Superhero {
   };
 }
 
+interface WinProbabilityChartProps {
+  hero1Probability: number;
+  hero2Probability: number;
+  hero1Name: string;
+  hero2Name: string;
+}
+
 // SuperheroCompare Component
 const SuperheroCompare = () => {
   const [hero1, setHero1] = useState<Superhero | null>(null);
   const [hero2, setHero2] = useState<Superhero | null>(null);
   const [searchResults, setSearchResults] = useState<{ label: string; value: number }[]>([]);
-  const router = useRouter();
 
   useEffect(() => {
     const fetchAllSuperheroes = async () => {
@@ -134,6 +142,38 @@ const SuperheroCompare = () => {
   ];
 
   const { hero1Probability, hero2Probability } = hero1 && hero2 ? calculateWinProbability(hero1.powerstats, hero2.powerstats) : { hero1Probability: 0, hero2Probability: 0 };
+
+  const COLORS = ['#C91A14', '#1A14C9'];
+
+  const WinProbabilityChart: React.FC<WinProbabilityChartProps> = ({ hero1Probability, hero2Probability, hero1Name, hero2Name }) => {
+    const data = [
+      { name: hero1Name, value: hero1Probability },
+      { name: hero2Name, value: hero2Probability },
+    ];
+
+    return (
+      <div className="">
+      <PieChart width={200} height={200}>
+        <Pie
+          data={data}
+          dataKey="value"
+          nameKey="name"
+          cx="50%"
+          cy="50%"
+          outerRadius={70}
+          fill="#8884d8"
+          label={false} // Disable labels outside the pie chart
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
+        <Tooltip />
+      </PieChart>
+    </div>
+    );
+  };
+
 
   return (
     <div className="rounded-md md:p-6 py-14 md:pt-24 w-full md:absolute md:top-5">
@@ -220,7 +260,7 @@ const SuperheroCompare = () => {
 >
   {hero1 && hero2 ? (
     <>
-      <div className='flex'>
+      <div className='flex flex-col md:flex-row pt-5'>
       <BarChart width={350} height={250} data={powerStatsData} className="mb-6">
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
@@ -246,14 +286,29 @@ const SuperheroCompare = () => {
         </Bar>
       </BarChart>
       </div>
-      <div className="py-4">
-        <h2 className="text-lg font-semibold text-white mb-4">Win Probability</h2>
-        <div className="text-white">
-          {hero1.name} has a {Math.round(hero1Probability * 100)}% chance of winning
-          <br />
-          {hero2.name} has a {Math.round(hero2Probability * 100)}% chance of winning
-        </div>
-      </div>
+      <div className="py-3 px-4">
+  <h2 className="text-2xl font-bold text-white mb-6 text-center">Win Probability</h2>
+  <div className='flex flex-col md:flex-row items-center justify-between w-full gap-6'>
+    <div className="flex-1 text-center md:text-left">
+      <WinProbabilityChart
+        hero1Probability={hero1Probability}
+        hero2Probability={hero2Probability}
+        hero1Name={hero1.name}
+        hero2Name={hero2.name}
+      />
+    </div>
+   
+    <div className="text-white flex-1 text-center md:text-left">
+      <p className="text-md font-normal mb-2">
+        <span className='text-red-600'>{hero1.name}</span> has a {Math.round(hero1Probability * 100)}%
+      </p>
+      <p className="text-md font-normal">
+      <span className='text-blue-600'>{hero2.name}</span> has a {Math.round(hero2Probability * 100)}%
+      </p>
+    </div>
+  </div>
+</div>
+
     </>
   ) : (
     <div className="flex flex-col items-center justify-center h-44 md:hidden">
