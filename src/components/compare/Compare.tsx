@@ -14,6 +14,7 @@ import {
   Tooltip,
   Legend,
   CartesianGrid,
+  Cell
 } from 'recharts';
 import { GlareCardDemo } from '../Glare';
 import { GlareCard } from '../ui/glare-card';
@@ -192,7 +193,14 @@ const SuperheroCompare = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="height" fill="#6604bd" />
+                <Bar dataKey="height" fill='#fc0b03'>
+                  {heightData.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={entry.name === (hero1?.name || 'Hero 1') ? '#c91a14' : '#1a14c9'}
+                    />
+                  ))}
+                </Bar>
               </BarChart>
             </>
           ) : (
