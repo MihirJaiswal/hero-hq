@@ -34,6 +34,8 @@ const Superhero = () => {
     race?: string;
   }>({});
 
+  const mainHeroesIds = [70 ,32, 644, 213, 265, 289 , 441, 687]; // Replace with actual IDs of main heroes
+
   useEffect(() => {
     const fetchSuperheroes = async () => {
       try {
@@ -77,6 +79,12 @@ const Superhero = () => {
     return matchesSearchTerm && matchesFilterCriteria;
   });
 
+  const sortedSuperheroes = filteredSuperheroes.sort((a, b) => a.name.localeCompare(b.name));
+  const mainHeroes = filteredSuperheroes.filter(hero => mainHeroesIds.includes(hero.id));
+  const remainingHeroes = sortedSuperheroes.filter(hero => !mainHeroesIds.includes(hero.id));
+
+  const heroesToDisplay = [...mainHeroes, ...remainingHeroes].slice(0, displayedCount);
+
   const handleLoadMore = () => {
     setDisplayedCount((prev) => Math.min(prev + 8, filteredSuperheroes.length));
   };
@@ -91,63 +99,63 @@ const Superhero = () => {
 
   return (
     <div className="min-h-screen backdrop-blur-md border border-black p-6 relative">
-        <div className="relative mx-auto max-w-5xl text-center flex flex-col items-center justify-center">
-          <div>
-            <img src="/logo.png" alt="Hero HQ Logo" className='w-24 mb-2' />
-          </div>
-          <h2 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-2xl md:text-4xl">
-            Discover the Heroes Behind the Legends
-          </h2>
+      <div className="relative mx-auto max-w-5xl text-center flex flex-col items-center justify-center">
+        <div>
+          <img src="/logo.png" alt="Hero HQ Logo" className='w-24 mb-2' />
         </div>
-        <div className="flex flex-col items-center my-12">
+        <h2 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-2xl md:text-4xl">
+          Discover the Heroes Behind the Legends
+        </h2>
+      </div>
+      <div className="flex flex-col items-center my-12">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 relative z-40">
-        <div className="flex items-center border border-gray-300 bg-gray-900 rounded-lg overflow-hidden flex-1">
-      <FaSearch className="text-gray-500 ml-2" />
-      <input
-        type="text"
-        placeholder="Search by name or full name..."
-        value={searchTerm}
-        onChange={handleSearchChange}
-        className="p-2 w-full text-white focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-900"
-      />
-    </div>
-    <div className="flex flex-wrap justify-center gap-5 w-full md:w-auto">
-    <select
-        name="publisher"
-        onChange={handleFilterChange}
-        className="p-2 border border-gray-500 bg-gray-900 text-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-36 w-32"
-      >
-        <option value="">All Publishers</option>
-        <option value="Marvel Comics">Marvel Comics</option>
-        <option value="DC Comics">DC Comics</option>
-        {/* Add more publishers as needed */}
-      </select>
-      <select
-        name="alignment"
-        onChange={handleFilterChange}
-        className="p-2 border border-gray-500 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-36 w-32"
-      >
-        <option value="">All Alignments</option>
-        <option value="good">Good</option>
-        <option value="bad">Bad</option>
-        <option value="neutral">Neutral</option>
-      </select>
-      <select
-        name="gender"
-        onChange={handleFilterChange}
-        className="p-2 border border-gray-500 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-36 w-32" 
-      >
-        <option value="">All Genders</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        {/* Add more genders as needed */}
-      </select>
-    </div>
-  </div>
-</div>
+          <div className="flex items-center border border-gray-300 bg-gray-900 rounded-lg overflow-hidden flex-1">
+            <FaSearch className="text-gray-500 ml-2" />
+            <input
+              type="text"
+              placeholder="Search by name or full name..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className="p-2 w-full text-white focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-900"
+            />
+          </div>
+          <div className="flex flex-wrap justify-center gap-5 w-full md:w-auto">
+            <select
+              name="publisher"
+              onChange={handleFilterChange}
+              className="p-2 border border-gray-500 bg-gray-900 text-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-36 w-32"
+            >
+              <option value="">All Publishers</option>
+              <option value="Marvel Comics">Marvel Comics</option>
+              <option value="DC Comics">DC Comics</option>
+              {/* Add more publishers as needed */}
+            </select>
+            <select
+              name="alignment"
+              onChange={handleFilterChange}
+              className="p-2 border border-gray-500 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-36 w-32"
+            >
+              <option value="">All Alignments</option>
+              <option value="good">Good</option>
+              <option value="bad">Bad</option>
+              <option value="neutral">Neutral</option>
+            </select>
+            <select
+              name="gender"
+              onChange={handleFilterChange}
+              className="p-2 border border-gray-500 bg-gray-900 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 md:w-36 w-32"
+            >
+              <option value="">All Genders</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              {/* Add more genders as needed */}
+            </select>
+          </div>
+        </div>
+      </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        {filteredSuperheroes.slice(0, displayedCount).map((superhero) => (
+        {heroesToDisplay.map((superhero) => (
           <SuperheroCard
             key={superhero.id}
             superhero={superhero}
@@ -165,7 +173,7 @@ const Superhero = () => {
           </button>
         </div>
       )}
-      <div className="absolute top-0 right-0 z-0 md:h-1/3 h-44  w-full" style={{ backgroundImage: 'linear-gradient(to right top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
+      <div className="absolute top-0 right-0 z-0 md:h-1/3 h-44 w-full" style={{ backgroundImage: 'linear-gradient(to right top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
       <div className="absolute top-0 right-0 z-0 md:h-1/3 h-44 w-full" style={{ backgroundImage: 'linear-gradient(to left top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
     </div>
   );

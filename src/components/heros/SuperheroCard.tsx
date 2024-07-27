@@ -23,9 +23,10 @@ const SuperheroCard: React.FC<SuperheroCardProps> = ({ superhero, imageSrc }) =>
           <Image
             src={imageSrc}
             alt={superhero.name}
-            layout="fill"
-            objectFit="contain"
-            className=""
+            width={1000}
+            height={1000}
+            quality={100}
+            className="w-full object-contain h-full"
           />
         </div>
         <div className="p-4 text-center">

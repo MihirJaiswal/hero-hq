@@ -62,7 +62,7 @@ export const Tabsmob = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-zinc-800 rounded-full ",
+                  "absolute inset-0 bg-red-600 rounded-full ",
                   activeTabClassName
                 )}
               />

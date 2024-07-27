@@ -80,10 +80,10 @@ export const Tabs = ({
             className="flex flex-col justify-center gap-8"
           >
             <h1 className="font-semibold text-gray-100 text-[40px] leading-[48px] lg:text-[48px] lg:leading-[60px]  xl:text-[58px] xl:leading-[74px]">
-              Host, Connect, Celebrate!
+              Discover the Heroes!
             </h1>
             <p className="tracking-[2%] md:font-normal text-[20px] leading-[36px] text-gray-400">
-              Book and learn helpful tips from 3,168+ mentors in world-class companies with our global community.
+            Dive into the world of superheroes and explore the incredible stories of over 3,000 iconic characters. 
             </p>
             <a
                 href="#"

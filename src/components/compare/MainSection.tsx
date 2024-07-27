@@ -41,15 +41,16 @@ export function MainSection() {
       className="relative flex flex-col h-full w-full items-center justify-center px-2 md:px-10 overflow-hidden md:shadow-xl bg-bg1"
       ref={containerRef}
     >
-        <Particles className="absolute inset-0" quantity={100} ease={80} color='#fff' refresh />
+     
       <div className='hidden md:block'>
       <img src="/space/moon.png" alt="" className='w-44 fixed top-20 right-0' />
       <img src="/space/saturn.png" alt="" className='w-24 absolute top-24 right-44 opacity-30' />
       </div>
-      <div className='absolute h-screen inset-0 bg-bg5 bg-cover bg-center pointer-events-none flex items-center justify-center'></div>
+      
           <div className='fixed inset-0 bg-bg6 bg-contain bg-repeat-x bg-center opacity-60 pointer-events-none'></div>
           <div className='fixed inset-0 bg-black bg-contain bg-repeat-x bg-center opacity-30 pointer-events-none'></div>
-
+          <Particles className="absolute inset-0" quantity={180} ease={80} color='#ffffff' refresh />
+          <div className='absolute h-screen inset-0 bg-bg5 bg-cover opacity-60 bg-center pointer-events-none flex items-center justify-center'></div>
       <div className="flex size-full flex-col max-w-lg max-h-[200px] items-stretch justify-between gap-10  -mt-14">
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div1Ref}>
