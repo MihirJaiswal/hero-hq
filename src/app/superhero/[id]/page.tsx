@@ -353,13 +353,13 @@ const SuperheroDetail = () => {
             <h2 className="text-3xl font-extrabold text-red-600 mb-8">Connections</h2>
             <div className="space-y-5 mb-2">
               <div className="flex items-center gap-2">
-                <FaUsers className="text-gray-50 mr-4 text-4xl" />
+                <FaUsers className="text-gray-50 mr-4" />
                 <p className="text-gray-300">
                   <span className='text-gray-100 font-bold'>Group Affiliation:</span> {superhero.connections.groupAffiliation}
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <FaUser className="text-gray-50 mr-4 text-4xl" />
+                <FaUser className="text-gray-50 mr-4" />
                 <p className="text-gray-300">
                   <span className='text-gray-100 font-bold'>Relatives:</span> {superhero.connections.relatives}
                 </p>
@@ -438,7 +438,6 @@ const SuperheroDetail = () => {
                  <XAxis dataKey="name"  tick={<CustomXAxisTick />} />
                  <YAxis  tick={<CustomYAxisTick />} />
                  <Tooltip />
-                 <Legend />
                  <Bar
                    dataKey="value"
                    barSize={30}
@@ -447,13 +446,13 @@ const SuperheroDetail = () => {
                  <ReferenceLine y={averageHeight} stroke="red" label="Average Height" />
                </BarChart>
            
-               <div className="absolute top-16 right-96 mt-2">
+               <div className="absolute top-[74px] right-96 mt-2">
                  <Image
                    src={averageHeightIcon}
                    alt="Average Height"
                    width={500} // Adjust the width as needed
                    height={500} // Adjust the height as needed
-                   className="w-auto h-[170px] z-10"
+                   className="w-auto h-[185px] z-10"
                  />
                </div>
              </div>
