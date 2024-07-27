@@ -186,7 +186,7 @@ const SuperheroDetail = () => {
 
 
   return (
-    <div className='bg-bg1'>
+    <div className='bg-bg1 pt-4'>
       <HomeHeader/>
         <Particles className="absolute inset-0" quantity={250} ease={80} color='#fff' refresh />
       <div className="flex flex-col text-gray-800  md:h-screen items-center justify-center pb-4 md:pt-28 pt-20 relative">
@@ -204,40 +204,40 @@ const SuperheroDetail = () => {
         <h1 className="text-5xl font-extrabold text-gray-100 uppercase mt-6">{superhero.name}</h1>
         </div>
           {/* Toggle Buttons */}
-          <div className="flex flex-wrap justify-center mb-8">
+          <div className="flex flex-wrap md:justify-center mb-8">
             <button
-              className={`w-full sm:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'biography' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
+              className={`w-36 md:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'biography' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
               onClick={() => setSection('biography')}
             >
               Biography
             </button>
             <button
-              className={`w-full sm:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'appearance' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
+              className={`w-36 md:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'appearance' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
               onClick={() => setSection('appearance')}
             >
               Appearance
             </button>
            
             <button
-              className={`w-full sm:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'powerStats' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
+              className={`w-36 md:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'powerStats' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
               onClick={() => setSection('powerStats')}
             >
               Power Stats
             </button>
             <button
-              className={`w-full sm:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'height' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
+              className={`w-36 md:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'height' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
               onClick={() => setSection('height')}
             >
               Height
             </button>
             <button
-              className={`w-full sm:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'connections' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
+              className={`w-36 md:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'connections' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
               onClick={() => setSection('connections')}
             >
               Connections
             </button>
             <button
-              className={`w-full sm:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'work' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
+              className={`w-36 md:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'work' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
               onClick={() => setSection('work')}
             >
               Work
