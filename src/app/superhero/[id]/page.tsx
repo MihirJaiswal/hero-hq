@@ -154,7 +154,6 @@ const SuperheroDetail = () => {
     { name: 'Combat', value: superhero.powerstats.combat },
   ];
   function convertHeightToDecimal(height: any) {
-    // Check if the height is in cm
     if (height.includes("cm")) {
       const cm = parseFloat(height);
       const feet = cm / 30.48;
@@ -297,8 +296,6 @@ const SuperheroDetail = () => {
               </div>
             </div>
           </div>
-          
-          
           )}
 
           {section === 'appearance' && (
@@ -337,7 +334,6 @@ const SuperheroDetail = () => {
               </div>
             </div>
           </div>
-          
           )}
 
           {section === 'connections' && (
@@ -378,7 +374,6 @@ const SuperheroDetail = () => {
               </div>
             </div>
           </div>
-          
           )}
 
           {section === 'powerStats' && (
@@ -398,7 +393,6 @@ const SuperheroDetail = () => {
                </BarChart>
              </div>
            </div>
-          
           )}
 
               {section === 'powerStats' && (
@@ -452,40 +446,37 @@ const SuperheroDetail = () => {
            </div>
           )}
 
-{section === 'height' && (
-  <div className="bg-bg2 p-4 border shadow-md mb-8 relative md:hidden">
-    <h2 className="text-3xl font-extrabold text-red-600 mb-8">Height</h2>
-    <div className="relative">
-      {/* BarChart */}
-      <div className="h-60 md:h-80 mb-6 border pt-4 pr-4">
-        <BarChart width={300} height={200} data={heightData} className='z-30'>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name"   tick={<CustomXAxisTick />} />
-          <YAxis   tick={<CustomYAxisTick />} />
-          <Tooltip />
-          <Bar
-            dataKey="value"
-            barSize={15}
-            fill="#0d378c"
-          />
-          <ReferenceLine y={averageHeight} stroke="red" label="Average Height" />
-        </BarChart>
-      </div>
-
-      {/* Average Height Icon */}
-      <div className="absolute top-16 right-2 md:top-4 md:right-4 flex items-center justify-center">
-        <Image
-          src={averageHeightIcon}
-          alt="Average Height"
-          width={100} 
-          height={100} 
-          className="w-auto h-[114px]"
-        />
-      </div>
-    </div>
-  </div>
-)}
-
+          {section === 'height' && (
+            <div className="bg-bg2 p-4 border shadow-md mb-8 relative md:hidden">
+              <h2 className="text-3xl font-extrabold text-red-600 mb-8">Height</h2>
+              <div className="relative">
+                {/* BarChart */}
+                <div className="h-60 md:h-80 mb-6 border pt-4 pr-4">
+                  <BarChart width={300} height={200} data={heightData} className='z-30'>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name"   tick={<CustomXAxisTick />} />
+                    <YAxis   tick={<CustomYAxisTick />} />
+                    <Tooltip />
+                    <Bar
+                      dataKey="value"
+                      barSize={15}
+                      fill="#0d378c"
+                    />
+                    <ReferenceLine y={averageHeight} stroke="red" label="Average Height" />
+                  </BarChart>
+                </div>
+                <div className="absolute top-16 right-2 md:top-4 md:right-4 flex items-center justify-center">
+                  <Image
+                    src={averageHeightIcon}
+                    alt="Average Height"
+                    width={100} 
+                    height={100} 
+                    className="w-auto h-[114px]"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

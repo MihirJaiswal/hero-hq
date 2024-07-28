@@ -52,17 +52,17 @@ function HomeMobileNav() {
                       <p className='font-semibold text-[18px] '>{link.title}</p>
                     </Link>
                     </SheetClose>
-                )
-            })}
-           </div>
-          </section>
-         </SheetClose>
+                    )
+                })}
+              </div>
+              </section>
+            </SheetClose>
+            </div>
+            </SheetContent>
+          </Sheet>
         </div>
-        </SheetContent>
-      </Sheet>
-     </div>
-    </section>
-  )
-}
+        </section>
+      )
+    }
 
 export default HomeMobileNav

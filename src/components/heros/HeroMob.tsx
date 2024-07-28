@@ -6,7 +6,7 @@ import { TabMob } from './TabMob';
 const HeroMob = () => {
   return (
     <div className='md:hidden'>
-      <section className="pt-20 bg-dotted-pattern bg-contain py-5 md:py-10">
+      <section className="pt-24 bg-dotted-pattern bg-contain py-5 md:py-10">
       <Particles className="absolute inset-0" quantity={100} ease={80} color='#fff' refresh />
         <div className="max-w-7xl lg:mx-auto p-5 md:px-10 xl:px-0 w-full grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div 
@@ -25,7 +25,6 @@ const HeroMob = () => {
                 Explore Now
               </a>
           </div>
-
           <TabMob/>
         </div>
       </section>

@@ -20,7 +20,6 @@ import {
 } from 'recharts';
 import { GlareCardDemo, GlareCardLoader } from './Glare';
 
-// Define types for superhero data
 interface Superhero {
   id: number;
   name: string;
@@ -53,7 +52,6 @@ interface WinProbabilityChartProps {
   hero2Name: string;
 }
 
-// SuperheroCompare Component
 const SuperheroCompare = () => {
   const [hero1, setHero1] = useState<Superhero | null>(null);
   const [hero2, setHero2] = useState<Superhero | null>(null);
@@ -165,7 +163,7 @@ const SuperheroCompare = () => {
             cy="50%"
             outerRadius={70}
             fill="#8884d8"
-            label={false} // Disable labels outside the pie chart
+            label={false} 
           >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -176,9 +174,6 @@ const SuperheroCompare = () => {
       </div>
     );
   };
-
-
-
   return (
     <div className="rounded-md md:p-6 py-14 md:pt-24 w-full md:absolute md:top-5">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 ">
@@ -225,7 +220,7 @@ const SuperheroCompare = () => {
               }),
               input: (provided) => ({
                 ...provided,
-                color: '#fff', // Ensure the input text color is white
+                color: '#fff', 
               }),
             }}
           />
@@ -264,74 +259,68 @@ const SuperheroCompare = () => {
             </div>
           )}
         </div>
-        
-        {/* Comparison Results */}
         <div
-  className={classNames(
-    "col-span-1 md:col-span-2 hidden md:flex flex-col items-center justify-center z-40",
-    { "md:bg-gray-950 border border-gray-600 p-8 md:p-0": hero1 && hero2 }
-  )}
->
-  {hero1 && hero2 ? (
-    <>
-      <div className='flex flex-col md:flex-row pt-5 '>
-      <BarChart width={350} height={250} data={powerStatsData} className="mb-6">
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey={hero1?.name || 'Hero 1'} fill="#c91a14" />
-        <Bar dataKey={hero2?.name || 'Hero 2'} fill="#1a14c9" />
-      </BarChart>
-      <BarChart width={350} height={250} data={heightData}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="height" fill='#13a813'>
-          {heightData.map((entry, index) => (
-            <Cell
-              key={`cell-${index}`}
-              fill={entry.name === (hero1?.name || 'Hero 1') ? '#c91a14' : '#1a14c9'}
-            />
-          ))}
-        </Bar>
-      </BarChart>
-      </div>
-      <div className="py-3 px-4">
-  <h2 className="text-2xl font-bold text-white mb-6 text-center">Win Probability</h2>
-  <div className='flex flex-col md:flex-row items-center justify-between w-full gap-6'>
-    <div className="flex-1 text-center md:text-left">
-      <WinProbabilityChart
-        hero1Probability={hero1Probability}
-        hero2Probability={hero2Probability}
-        hero1Name={hero1.name}
-        hero2Name={hero2.name}
-      />
-    </div>
-   
-    <div className="text-white flex-1 text-center md:text-left">
-      <p className="text-md font-normal mb-2">
-        <span className='text-red-600'>{hero1.name}</span> has a {Math.round(hero1Probability * 100)}%
-      </p>
-      <p className="text-md font-normal">
-      <span className='text-blue-600'>{hero2.name}</span> has a {Math.round(hero2Probability * 100)}%
-      </p>
-    </div>
-  </div>
-</div>
-
-    </>
-  ) : (
-    <div className="flex flex-col items-center justify-center h-44 md:hidden">
-      <p className="text-lg font-bold text-gray-700 border bg-white/60 p-2 rounded-md">Choose heroes to compare</p>
-    </div>
-  )}
-</div>
-       
-        {/* Hero 2 */}
+          className={classNames(
+            "col-span-1 md:col-span-2 hidden md:flex flex-col items-center justify-center z-40",
+            { "md:bg-gray-950 border border-gray-600 p-8 md:p-0": hero1 && hero2 }
+          )}
+        >
+            {hero1 && hero2 ? (
+              <>
+                <div className='flex flex-col md:flex-row pt-5 '>
+                <BarChart width={350} height={250} data={powerStatsData} className="mb-6">
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey={hero1?.name || 'Hero 1'} fill="#c91a14" />
+                  <Bar dataKey={hero2?.name || 'Hero 2'} fill="#1a14c9" />
+                </BarChart>
+                <BarChart width={350} height={250} data={heightData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="height" fill='#13a813'>
+                  {heightData.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={entry.name === (hero1?.name || 'Hero 1') ? '#c91a14' : '#1a14c9'}
+                    />
+                  ))}
+                </Bar>
+              </BarChart>
+              </div>
+              <div className="py-3 px-4">
+                <h2 className="text-2xl font-bold text-white mb-6 text-center">Win Probability</h2>
+              <div className='flex flex-col md:flex-row items-center justify-between w-full gap-6'>
+              <div className="flex-1 text-center md:text-left">
+                <WinProbabilityChart
+                  hero1Probability={hero1Probability}
+                  hero2Probability={hero2Probability}
+                  hero1Name={hero1.name}
+                  hero2Name={hero2.name}
+                />
+              </div>
+            <div className="text-white flex-1 text-center md:text-left">
+              <p className="text-md font-normal mb-2">
+                <span className='text-red-600'>{hero1.name}</span> has a {Math.round(hero1Probability * 100)}%
+              </p>
+              <p className="text-md font-normal">
+              <span className='text-blue-600'>{hero2.name}</span> has a {Math.round(hero2Probability * 100)}%
+              </p>
+            </div>
+          </div>
+        </div>
+      </>
+          ) : (
+            <div className="flex flex-col items-center justify-center h-44 md:hidden">
+              <p className="text-lg font-bold text-gray-700 border bg-white/60 p-2 rounded-md">Choose heroes to compare</p>
+            </div>
+          )}
+        </div>
         <div className="col-span-1 flex flex-col items-center justify-center">
           <div className="pb-8 w-full px-6">
           <Select
@@ -374,18 +363,16 @@ const SuperheroCompare = () => {
                 }),
                 input: (provided) => ({
                   ...provided,
-                  color: '#fff', // Ensure the input text color is white
+                  color: '#fff', 
                 }),
               }}
             />
           </div>
-
           { loadingHero2 ? (
             <div>
               <GlareCardLoader/>
             </div>
           ):
-          
           hero2 ? (
             <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl z-40">
               <div className="relative w-full h-72 mb-4">
@@ -414,70 +401,68 @@ const SuperheroCompare = () => {
           )}
         </div>
         <div
-  className={classNames(
-    "col-span-1 md:col-span-2 flex flex-col items-center justify-center z-40",
-    { "md:bg-gray-950 border border-gray-600 p-8 md:p-0 md:hidden": hero1 && hero2 }
-  )}
->
-  <h1 className='text-red-600 mb-4 text-3xl font-bold'>RESULT</h1>
-  {hero1 && hero2 ? (
-    <>
-      <div className='flex flex-col md:flex-row p-4 border'>
-      <BarChart width={300} height={200} data={powerStatsData} className="mb-6">
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey={hero1?.name || 'Hero 1'} fill="#c91a14" />
-        <Bar dataKey={hero2?.name || 'Hero 2'} fill="#1a14c9" />
-      </BarChart>
-      <BarChart width={300} height={200} data={heightData}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="height" fill='#13a813'>
-          {heightData.map((entry, index) => (
-            <Cell
-              key={`cell-${index}`}
-              fill={entry.name === (hero1?.name || 'Hero 1') ? '#c91a14' : '#1a14c9'}
+        className={classNames(
+          "col-span-1 md:col-span-2 flex flex-col items-center justify-center z-40",
+          { "md:bg-gray-950 border border-gray-600 p-8 md:p-0 md:hidden": hero1 && hero2 }
+        )}
+      >
+        <h1 className='text-red-600 mb-4 text-3xl font-bold'>RESULT</h1>
+        {hero1 && hero2 ? (
+          <>
+            <div className='flex flex-col md:flex-row p-4 border'>
+            <BarChart width={300} height={200} data={powerStatsData} className="mb-6">
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey={hero1?.name || 'Hero 1'} fill="#c91a14" />
+              <Bar dataKey={hero2?.name || 'Hero 2'} fill="#1a14c9" />
+            </BarChart>
+            <BarChart width={300} height={200} data={heightData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="height" fill='#13a813'>
+                {heightData.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={entry.name === (hero1?.name || 'Hero 1') ? '#c91a14' : '#1a14c9'}
+                  />
+                ))}
+              </Bar>
+            </BarChart>
+            </div>
+            <div className="py-3 px-16 mt-2 border">
+        <h2 className="text-2xl font-bold text-white mb-6 text-center">Win Probability</h2>
+        <div className='flex flex-col md:flex-row items-center justify-between w-full gap-6'>
+          <div className="flex-1 text-center md:text-left">
+            <WinProbabilityChart
+              hero1Probability={hero1Probability}
+              hero2Probability={hero2Probability}
+              hero1Name={hero1.name}
+              hero2Name={hero2.name}
             />
-          ))}
-        </Bar>
-      </BarChart>
+          </div>
+          <div className="text-white flex-1 text-center md:text-left">
+            <p className="text-md font-normal mb-2">
+              <span className='text-red-600'>{hero1.name}</span> has a {Math.round(hero1Probability * 100)}%
+            </p>
+            <p className="text-md font-normal">
+            <span className='text-blue-600'>{hero2.name}</span> has a {Math.round(hero2Probability * 100)}%
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="py-3 px-16 mt-2 border">
-  <h2 className="text-2xl font-bold text-white mb-6 text-center">Win Probability</h2>
-  <div className='flex flex-col md:flex-row items-center justify-between w-full gap-6'>
-    <div className="flex-1 text-center md:text-left">
-      <WinProbabilityChart
-        hero1Probability={hero1Probability}
-        hero2Probability={hero2Probability}
-        hero1Name={hero1.name}
-        hero2Name={hero2.name}
-      />
-    </div>
-   
-    <div className="text-white flex-1 text-center md:text-left">
-      <p className="text-md font-normal mb-2">
-        <span className='text-red-600'>{hero1.name}</span> has a {Math.round(hero1Probability * 100)}%
-      </p>
-      <p className="text-md font-normal">
-      <span className='text-blue-600'>{hero2.name}</span> has a {Math.round(hero2Probability * 100)}%
-      </p>
-    </div>
-  </div>
-</div>
-
     </>
-  ) : (
-    <div className="flex flex-col items-center justify-center h-44 md:hidden">
-      <p className="text-lg font-bold text-gray-700 border bg-white/60 p-2 rounded-md">Choose heroes to compare</p>
+      ) : (
+        <div className="flex flex-col items-center justify-center h-44 md:hidden">
+          <p className="text-lg font-bold text-gray-700 border bg-white/60 p-2 rounded-md">Choose heroes to compare</p>
+        </div>
+      )}
     </div>
-  )}
-</div>
       </div>
     </div>
   );

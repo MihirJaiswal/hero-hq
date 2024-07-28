@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { Tabsmob } from "../ui/tabsmob";
 
@@ -18,7 +17,6 @@ export function TabMob() {
             className="object-cover h-48 w-auto"
             loading="lazy"
           />
-          <DummyContent />
         </div>
       ),
     },
@@ -35,7 +33,6 @@ export function TabMob() {
             className="object-cover  h-48 w-auto"
             loading="lazy"
           />
-          <DummyContent />
         </div>
       ),
     },
@@ -52,7 +49,6 @@ export function TabMob() {
             className="object-cover  h-48 w-auto"
             loading="lazy"
           />
-          <DummyContent />
         </div>
       ),
     },
@@ -69,7 +65,6 @@ export function TabMob() {
             className="object-cover  h-48 w-auto"
             loading="lazy"
           />
-          <DummyContent />
         </div>
       ),
     },
@@ -86,7 +81,6 @@ export function TabMob() {
             className="object-cover  h-48 w-auto"
             loading="lazy"
           />
-          <DummyContent />
         </div>
       ),
     },
@@ -97,9 +91,3 @@ export function TabMob() {
     </div>
   );
 }
-
-const DummyContent = () => {
-  return (
-    <></>
-  );
-};

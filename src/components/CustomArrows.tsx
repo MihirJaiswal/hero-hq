@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 
-// Custom Arrow Styles
 const ArrowButton = styled.div`
   z-index: 1;
   border-radius: 50%;

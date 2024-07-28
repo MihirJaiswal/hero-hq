@@ -36,7 +36,7 @@ const Superhero = () => {
     race?: string;
   }>({});
 
-  const mainHeroesIds = [70 ,32, 644, 213, 265, 289 , 441, 687]; // Replace with actual IDs of main heroes
+  const mainHeroesIds = [70 ,32, 644, 213, 265, 289 , 441, 687]; 
 
   useEffect(() => {
     const fetchSuperheroes = async () => {
@@ -96,7 +96,7 @@ const Superhero = () => {
   }
 
   return (
-    <div className="min-h-screen backdrop-blur-md border border-black p-6 relative">
+    <div className="min-h-screen backdrop-blur-md border border-gray-600 md:border-black p-6 relative bg-bg3">
       <div className="relative mx-auto max-w-5xl text-center flex flex-col items-center justify-center">
         <div>
           <Image
@@ -133,7 +133,6 @@ const Superhero = () => {
               <option value="">All Publishers</option>
               <option value="Marvel Comics">Marvel Comics</option>
               <option value="DC Comics">DC Comics</option>
-              {/* Add more publishers as needed */}
             </select>
             <select
               name="alignment"
@@ -158,7 +157,6 @@ const Superhero = () => {
           </div>
         </div>
       </div>
-
       <div className="flex flex-wrap items-center justify-center gap-8">
         {loading 
           ? Array.from({ length: displayedCount }).map((_, index) => <ShimmerCard key={index} />)
@@ -181,9 +179,8 @@ const Superhero = () => {
           </button>
         </div>
       )}
-
-<div className="absolute top-0 right-0 z-0 h-1/5 w-full" style={{ backgroundImage: 'linear-gradient(to right top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
-<div className="absolute top-0 right-0 z-0 h-1/4 w-full" style={{ backgroundImage: 'linear-gradient(to left top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
+      <div className="absolute top-0 right-0 z-0 h-44 md:h-1/5 w-full" style={{ backgroundImage: 'linear-gradient(to right top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
+      <div className="absolute top-0 right-0 z-0 h-44 md:h-1/4 w-full" style={{ backgroundImage: 'linear-gradient(to left top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
     </div>
   );
 };

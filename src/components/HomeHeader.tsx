@@ -17,7 +17,6 @@ const HomeHeader = () => {
             height={42}
             className='max-sm:size-10 m-2'
             />
-           
         </a>
         <div>
         <HomeNav/>

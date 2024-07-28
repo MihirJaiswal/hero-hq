@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import { Tabs } from "../ui/tabs";
 
@@ -18,7 +17,6 @@ export function TabsDemo() {
             loading="lazy"
             className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
           />
-          <DummyContent />
         </div>
       ),
     },
@@ -35,7 +33,6 @@ export function TabsDemo() {
             loading="lazy"
             className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
           />
-          <DummyContent />
         </div>
       ),
     },
@@ -52,7 +49,6 @@ export function TabsDemo() {
             loading="lazy"
             className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
           />
-          <DummyContent />
         </div>
       ),
     },
@@ -69,7 +65,6 @@ export function TabsDemo() {
             loading="lazy"
             className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
           />
-          <DummyContent />
         </div>
       ),
     },
@@ -86,7 +81,6 @@ export function TabsDemo() {
             loading="lazy"
             className="object-cover object-left-top h-[60%]  md:h-[90%] absolute -bottom-10 inset-x-0 w-[90%] rounded-xl mx-auto"
           />
-          <DummyContent />
         </div>
       ),
     },
@@ -99,8 +93,3 @@ export function TabsDemo() {
   );
 }
 
-const DummyContent = () => {
-  return (
-    <></>
-  );
-};

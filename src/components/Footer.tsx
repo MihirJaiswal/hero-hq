@@ -5,7 +5,6 @@ const Footer: React.FC = () => {
   return (
     <footer className="flex flex-col items-center bg-bg1 text-center text-white z-50 relative">
       <div className="container pt-9">
-        {/* Social media icons container */}
         <div className="mb-6 flex justify-center space-x-2">
           <a
             href="https://github.com/MihirJaiswal/MihirJaiswal"
@@ -38,7 +37,6 @@ const Footer: React.FC = () => {
             <FaInstagram className="h-5 w-5" />
           </a>
         </div>
-        {/* Footer bottom */}
         <div className="mb-6 flex items-center justify-center space-x-2">
           <span className="text-sm text-white dark:text-secondary-900">
             © 2024 Mihir Jaiswal

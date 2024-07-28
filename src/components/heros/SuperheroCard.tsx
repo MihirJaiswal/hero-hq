@@ -12,7 +12,6 @@ interface SuperheroCardProps {
     };
   };
   imageSrc: string;
-
 }
 
 const SuperheroCard: React.FC<SuperheroCardProps> = ({ superhero, imageSrc }) => {
@@ -38,7 +37,6 @@ const SuperheroCard: React.FC<SuperheroCardProps> = ({ superhero, imageSrc }) =>
               Publisher: <span className='text-gray-400'>{superhero.biography.publisher}</span>
             </p>
         </div>
-      
       </div>
     </Link>
   );

@@ -9,8 +9,6 @@ const Hero = () => {
       <section className="hidden md:block ">
       <Particles className="absolute inset-0" quantity={100} ease={80} color='#fff' refresh />
         <div>
-          
-
          <TabsDemo/>
         </div>
       </section>
