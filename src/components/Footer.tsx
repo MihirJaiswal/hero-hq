@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaYoutube, FaInstagram } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="flex flex-col items-center bg-bg1 text-center text-white">
+    <footer className="flex flex-col items-center bg-bg1 text-center text-white z-50 relative">
       <div className="container pt-9">
         {/* Social media icons container */}
         <div className="mb-6 flex justify-center space-x-2">
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
           <a
             href="https://www.youtube.com/channel/UCANl98VUjfCZW7P2Tac1c6Q"
             type="button"
-            className="rounded-full bg-transparent hover:bg-red-500 p-3 font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-secondary-900 focus:outline-none focus:ring-0"
+            className="rounded-full bg-transparent hover:bg-red-600 p-3 font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-secondary-900 focus:outline-none focus:ring-0"
           >
             <FaYoutube className="h-5 w-5" />
           </a>
