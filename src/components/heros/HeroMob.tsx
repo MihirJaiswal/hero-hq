@@ -6,13 +6,13 @@ import { TabMob } from './TabMob';
 const HeroMob = () => {
   return (
     <div className='md:hidden'>
-      <section className="pt-24 bg-dotted-pattern bg-contain py-5 md:py-10">
+      <section className="pt-28 bg-dotted-pattern bg-contain md:py-10">
       <Particles className="absolute inset-0" quantity={100} ease={80} color='#fff' refresh />
-        <div className="max-w-7xl lg:mx-auto p-5 md:px-10 xl:px-0 w-full grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
+        <div className="flex flex-col justify-center items-center max-w-7xl mx-6">
           <div 
             className="flex flex-col justify-center gap-8"
           >
-             <h1 className="font-semibold text-gray-100 text-[40px] leading-[48px] lg:text-[48px] lg:leading-[60px]  xl:text-[58px] xl:leading-[74px]">
+             <h1 className="font-semibold text-gray-100 text-[40px] leading-[48px]">
               Discover the Heroes!
             </h1>
             <p className="tracking-[2%] md:font-normal text-[20px] leading-[36px] text-gray-400">
