@@ -40,7 +40,7 @@ export const Tabsmob = ({
     <>
       <div
         className={cn(
-          "flex flex-row items-center justify-start [perspective:1000px] relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full",
+          "flex flex-row bg-bg1 items-center justify-start relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-full border border-gray-400 rounded-md p-2",
           containerClassName
         )}
       >
@@ -52,7 +52,7 @@ export const Tabsmob = ({
             }}
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
-            className={cn("relative px-4 py-2 rounded-full", tabClassName)}
+            className={cn("relative px-4 py-3 rounded-full", tabClassName)}
             style={{
               transformStyle: "preserve-3d",
             }}
@@ -62,25 +62,23 @@ export const Tabsmob = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-red-600 rounded-full ",
+                  "absolute inset-0 bg-gray-600 rounded-full ",
                   activeTabClassName
                 )}
               />
             )}
 
-            <span className="relative block text-white">
-              {tab.title}
-            </span>
+            <span className="relative block text-white">{tab.title}</span>
           </button>
         ))}
       </div>
-      <FadeInDiv
-        tabs={tabs}
-        active={active}
-        key={active.value}
-        hovering={hovering}
-        className={cn("mt-24", contentClassName)}
-      />
+        <FadeInDiv
+          tabs={tabs}
+          active={active}
+          key={active.value}
+          hovering={hovering}
+          className={cn("mt-32", contentClassName)}
+        />
     </>
   );
 };
