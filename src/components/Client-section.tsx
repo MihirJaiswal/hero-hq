@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function ClientSection() {
     return (
       <section
@@ -12,34 +14,54 @@ export default function ClientSection() {
             <div className="mt-6">
               <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-16 [&_path]:fill-white">
                 <li>
-                  <img
+                  <Image
                     src='/marvel.png'
-                    className="h-auto w-24 px-2 dark:brightness-0 dark:invert"
+                    alt="marvel"
+                    height={100}
+                    width={100}
+                    loading="lazy"
+                    className="h-auto w-24 px-2"
                   />
                 </li>
                 <li>
-                  <img
+                <Image
                     src='/DC.png'
-                    className="h-auto w-24 px-2 dark:brightness-0 dark:invert"
+                    alt="marvel"
+                    height={100}
+                    width={100}
+                    loading="lazy"
+                    className="h-auto w-24 px-2"
                   />
                 </li>
                 <li>
-                  <img
+                <Image
                     src='/disney.png'
-                    className="h-auto w-24 bg-white p-2 dark:brightness-0 dark:invert"
+                    alt="DC"
+                    height={100}
+                    width={100}
+                    loading="lazy"
+                    className="h-auto w-24 p-2 bg-white"
                   />
                 </li>
   
                 <li>
-                  <img
+                <Image
                     src='/bandai.svg'
-                    className="h-auto w-24 px-2 dark:brightness-0 dark:invert"
+                    alt="Bandai Namco"
+                    height={100}
+                    width={100}
+                    loading="lazy"
+                    className="h-auto w-24 px-2 "
                   />
                 </li>
                 <li>
-                  <img
+                <Image
                     src='/warnerbros.svg'
-                    className="h-auto w-24 px-2 dark:brightness-0 dark:invert"
+                    alt="warnerbros"
+                    height={100}
+                    width={100}
+                    loading="lazy"
+                    className="h-auto w-24 px-2 "
                   />
                 </li>
               </ul>

@@ -69,8 +69,7 @@ const Hero: React.FC = () => {
                 width={800}
                 height={800}
                 quality={100}
-                objectFit="contain"
-                className="w-32 md:w-48"
+                className="w-32 md:w-48 object-contain"
                 loading='lazy'
               />
             </div>
@@ -112,8 +111,7 @@ const Hero: React.FC = () => {
                     alt={hero.name}
                     width={80}
                     height={80}
-                    objectFit="cover"
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                     loading='lazy'
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t from-black opacity-50 rounded-full ${selectedHero.name === hero.name ? 'opacity-75' : 'opacity-50'}`}></div>
@@ -136,8 +134,7 @@ const Hero: React.FC = () => {
                 width={800}
                 height={800}
                 quality={100}
-                objectFit="contain"
-                className="main-image mt-10 md:mt-0"
+                className="main-image mt-10 md:mt-0 object-contain"
                 loading='lazy'
               />
             </CSSTransition>

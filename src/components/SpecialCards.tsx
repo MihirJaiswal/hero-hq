@@ -6,8 +6,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { SamplePrevArrow, SampleNextArrow } from './CustomArrows';
 import { SparklesCore } from './ui/sparkles';
+import Image from 'next/image';
 
-// Styled Components
 const CardContainer = styled.a`
   width: var(--card-width);
   height: var(--card-height);
@@ -51,18 +51,18 @@ const Wrapper = styled.div`
   }
 `;
 
-const CoverImage = styled.img`
+const CoverImage = styled(Image)`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `;
 
-const Title = styled.img`
+const Title = styled(Image)`
   width: 100%;
   transition: transform 0.5s;
 `;
 
-const Character = styled.img`
+const Character = styled(Image)`
   width: 100%;
   opacity: 0;
   transition: all 0.5s;
@@ -80,15 +80,32 @@ const Card: React.FC<CardProps> = ({ coverImage, titleImage, characterImage }) =
   return (
     <CardContainer>
       <Wrapper>
-        <CoverImage src={coverImage} />
+        <CoverImage
+        src={coverImage}
+        alt="Cover Image"
+        width={500}
+        height={500}
+        loading='lazy'
+        />
       </Wrapper>
-      <Title src={titleImage} />
-      <Character src={characterImage} />
+      <Title 
+      src={titleImage}
+      alt='title'
+      width={500}
+      height={500}
+      loading='lazy'
+      />
+      <Character
+       src={characterImage}
+       alt="Character"
+       width={500}
+       height={500}
+       loading='lazy'
+      />
     </CardContainer>
   );
 };
 
-// Custom Arrow Buttons
 const ArrowButton = styled.button`
   background: #fff;
   border: none;
@@ -112,27 +129,6 @@ const ArrowButton = styled.button`
   }
 `;
 
-/* const PrevArrow: React.FC<SamplePrevArrow> = ({ className, style, onClick }) => (
-  <ArrowButton
-    className={className}
-    style={{ ...style, left: '10px' }}
-    onClick={onClick}
-  >
-    &#9664;
-  </ArrowButton>
-);
-
-const NextArrow: React.FC<SampleNextArrow> = ({ className, style, onClick }) => (
-  <ArrowButton
-    className={className}
-    style={{ ...style, right: '10px' }}
-    onClick={onClick}
-  >
-    &#9654;
-  </ArrowButton>
-);
- */
-// CSS Variables
 const GlobalStyles = styled.div`
   --card-height: 400px; /* Increased height */
   --card-width: calc(var(--card-height) / 1.5);
@@ -223,13 +219,11 @@ const SpecialCards: React.FC = () => {
         MOVIES
       </h1>
       <div className="w-[40rem] h-16 mb-14 relative">
-        {/* Gradients */}
         <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
         <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
         <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
         <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
  
-        {/* Core component */}
         <SparklesCore
           background="transparent"
           minSize={0.4}
@@ -238,8 +232,6 @@ const SpecialCards: React.FC = () => {
           className="w-full h-full"
           particleColor="#FFFFFF"
         />
- 
-        {/* Radial Gradient to prevent sharp edges */}
         <div className="absolute inset-0 w-full h-full [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
       </div>
     </div>
@@ -251,7 +243,7 @@ const SpecialCards: React.FC = () => {
         />
         <Card
           coverImage="/spidermanposter.jpg"
-          titleImage="pngwing1.png"
+          titleImage="/pngwing1.png"
           characterImage="/spidermanpng.png"
         />
         <Card
@@ -261,8 +253,8 @@ const SpecialCards: React.FC = () => {
         />
         <Card
           coverImage="/aquamanposter.jpg"
-          titleImage="aquamanlogo.png"
-          characterImage="aquaman.png"
+          titleImage="/aquamanlogo.png"
+          characterImage="/aquaman.png"
         />
       </Slider>
     </GlobalStyles>
