@@ -1,19 +1,19 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
-// Define card data
 const cardData = [
   {
     id: 0,
     imageSrc: '/icons/deadpool.png',
     title: 'Hero Profiles',
-    description: 'Explore detailed profiles of iconic superheroes, from their origin stories to their most powerful abilities. Customize your hero experience with in-depth information and engaging content.',
+    description: 'Explore detailed profiles of iconic heroes, from their origin stories to their most powerful stats. Compare your heores and know their strength',
   },
   {
     id: 1,
     imageSrc: '/icons/vector.png',
     title: 'Up-to-Date Information',
-    description: 'Stay updated with the latest news and updates from the superhero world. Our platform provides real-time information on new characters, storylines, and events across various universes.',
+    description: 'Stay updated with the latest news and updates from the heroes world. Our platform provides real-time info on new characters across various universes.',
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const cardData = [
 
 const Compo: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeCard, setActiveCard] = useState<number | null>(null); // For tracking active card
+  const [activeCard, setActiveCard] = useState<number | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -67,7 +67,15 @@ const Compo: React.FC = () => {
       >
         <div className="relative mx-auto max-w-5xl text-center flex flex-col items-center justify-center">
           <div>
-            <img src="/logo.png" alt="Hero HQ Logo" className='w-24' />
+            <Image 
+            src="/logo.png"
+            alt="Hero HQ Logo"
+            width={150}
+            height={150}
+            quality={100}
+            loading='lazy'
+            className='w-24'
+            />
           </div>
           <span className="text-gray-400 my-3 flex items-center justify-center font-medium uppercase tracking-wider">
             Welcome to Hero HQ
@@ -92,11 +100,18 @@ const Compo: React.FC = () => {
               }}
               onClick={() => handleCardClick(id)}
             >
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-md border"> {/* Increased image size */}
-                <img src={imageSrc} alt={title} className="h-full w-full object-contain" />
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-md border"> 
+                <Image
+                 src={imageSrc} 
+                 alt={title} 
+                 width={100}
+                 height={100}
+                 quality={100}
+                 loading='lazy'
+                 className="h-full w-full object-contain" />
               </div>
               <h3 className="mt-6 text-gray-200">{title}</h3>
-              <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400">
+              <p className="my-4 mb-0 font-normal leading-relaxed tracking-wide text-gray-400 text-center">
                 {description}
               </p>
             </div>

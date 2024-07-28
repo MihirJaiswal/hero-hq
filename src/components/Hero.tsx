@@ -71,31 +71,32 @@ const Hero: React.FC = () => {
                 quality={100}
                 objectFit="contain"
                 className="w-32 md:w-48"
+                loading='lazy'
               />
             </div>
            
             <h1 className="md:text-5xl text-3xl font-bold mb-4">
               <Typewriter
                 options={{
-                  strings: ['The HeroHQ', 'Discover Your Hero'],
+                  strings: ['The HERO-HQ', 'Discover your Hero'],
                   autoStart: true,
                   loop: true,
                 }}
               />
             </h1>
-            <p className="text-lg mt-2 mx-2 md:mx-0">{selectedHero.description}</p>
+            <p className="text-lg mt-2 text-gray-300 mx-2 md:mx-0">{selectedHero.description}</p>
             <div className='flex items-center justify-center gap-4 my-6'>
               <a
-                href="#"
+                href="/superhero"
                 className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300"
               >
-                Join Now
+                Heroes
               </a>
               <a
-                href="#"
+                href="compare"
                 className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300"
               >
-                Learn More
+                Compare
               </a>
             </div>
             <div className="flex gap-6 md:gap-8 mt-8 md:mt-10 flex-wrap justify-center md:justify-start">
@@ -113,6 +114,7 @@ const Hero: React.FC = () => {
                     height={80}
                     objectFit="cover"
                     className="w-full h-full"
+                    loading='lazy'
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t from-black opacity-50 rounded-full ${selectedHero.name === hero.name ? 'opacity-75' : 'opacity-50'}`}></div>
                 </div>
@@ -136,6 +138,7 @@ const Hero: React.FC = () => {
                 quality={100}
                 objectFit="contain"
                 className="main-image mt-10 md:mt-0"
+                loading='lazy'
               />
             </CSSTransition>
           </TransitionGroup>
