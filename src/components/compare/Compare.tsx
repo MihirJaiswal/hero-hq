@@ -238,7 +238,7 @@ const SuperheroCompare = () => {
           ):
           
           hero1 ? (
-            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl">
+            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl z-40">
               <div className="relative w-full h-72 mb-4">
                 <Image
                   src={hero1.images.lg}
@@ -269,12 +269,12 @@ const SuperheroCompare = () => {
         <div
   className={classNames(
     "col-span-1 md:col-span-2 flex flex-col items-center justify-center z-40",
-    { "bg-gray-950 border border-gray-600 p-8 md:p-0": hero1 && hero2 }
+    { "md:bg-gray-950 border border-gray-600 p-8 md:p-0": hero1 && hero2 }
   )}
 >
   {hero1 && hero2 ? (
     <>
-      <div className='flex flex-col md:flex-row pt-5'>
+      <div className='flex flex-col md:flex-row pt-5 '>
       <BarChart width={350} height={250} data={powerStatsData} className="mb-6">
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
@@ -387,7 +387,7 @@ const SuperheroCompare = () => {
           ):
           
           hero2 ? (
-            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl">
+            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl z-40">
               <div className="relative w-full h-72 mb-4">
               <Image
                   src={hero2.images.lg}
