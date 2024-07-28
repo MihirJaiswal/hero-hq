@@ -20,7 +20,7 @@ export default function ClientSection() {
                     height={100}
                     width={100}
                     loading="lazy"
-                    className="h-auto w-24 px-2"
+                    className="h-auto md:w-24 w-16 md:px-2"
                   />
                 </li>
                 <li>
@@ -30,7 +30,7 @@ export default function ClientSection() {
                     height={100}
                     width={100}
                     loading="lazy"
-                    className="h-auto w-24 px-2"
+                    className="h-auto md:w-24 w-16 md:px-2"
                   />
                 </li>
                 <li>
@@ -40,7 +40,7 @@ export default function ClientSection() {
                     height={100}
                     width={100}
                     loading="lazy"
-                    className="h-auto w-24 p-2 bg-white"
+                    className="h-auto md:w-24 w-16 md:p-4 p-2 bg-white"
                   />
                 </li>
   
@@ -51,7 +51,7 @@ export default function ClientSection() {
                     height={100}
                     width={100}
                     loading="lazy"
-                    className="h-auto w-24 px-2 "
+                    className="h-auto w-24 px-2 hidden md:block"
                   />
                 </li>
                 <li>
@@ -61,7 +61,7 @@ export default function ClientSection() {
                     height={100}
                     width={100}
                     loading="lazy"
-                    className="h-auto w-24 px-2 "
+                    className="h-auto w-24 px-2 hidden md:block"
                   />
                 </li>
               </ul>

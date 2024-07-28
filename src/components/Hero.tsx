@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
                 className={`flex flex-col items-center transition-transform transform hover:scale-110 hover:rotate-2 ${selectedHero.name === hero.name ? 'scale-125 shadow-2xl' : 'scale-100 shadow-md'}`}
                 onClick={() => handleHeroChange(hero, selectedHero.name === hero.name ? 'left' : 'right')}
               >
-                <div className={`relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 md:border-4 ${selectedHero.name === hero.name ? 'border-red-600' : 'border-white'}`}>
+                <div className={`relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden ${selectedHero.name === hero.name ? 'md:border-4 border-2 border-red-600' : 'border-2 border-white'}`}>
                   <Image
                     src={hero.image}
                     alt={hero.name}
