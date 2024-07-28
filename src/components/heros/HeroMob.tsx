@@ -19,10 +19,10 @@ const HeroMob = () => {
             Dive into the world of superheroes and explore the incredible stories of over 3,000 iconic characters. 
             </p>
             <a
-                href="#"
+                href="#explore"
                 className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300 w-36"
               >
-                Learn More
+                Explore Now
               </a>
           </div>
 
