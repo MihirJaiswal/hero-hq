@@ -175,7 +175,7 @@ const Superhero = () => {
         <div className="flex justify-center mt-8">
           <button
             onClick={handleLoadMore}
-            className="bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             Load More
           </button>

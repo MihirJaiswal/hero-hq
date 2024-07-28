@@ -22,7 +22,6 @@ import Footer from '@/components/Footer';
 import HomeHeader from '@/components/HomeHeader';
 import Loader from '@/components/Loader';
 
-// Define types for your superhero data
 interface Superhero {
   id: number;
   name: string;
@@ -159,24 +158,22 @@ const SuperheroDetail = () => {
     if (height.includes("cm")) {
       const cm = parseFloat(height);
       const feet = cm / 30.48;
-      return feet.toFixed(2); // Convert cm to feet and round to 2 decimal places
+      return feet.toFixed(2); 
     }
     
-    // Split the input string into feet and inches
     const [feet, inches] = height.split("'").map(Number);
     
-    // Convert inches to a fraction of a foot
     const decimalHeight = feet + (inches / 12);
   
-    return decimalHeight.toFixed(2); // Round to 2 decimal places
+    return decimalHeight.toFixed(2); 
   }
   
-  const heightString = superhero.appearance.height[0]; // "203 cm" or "6'3"
+  const heightString = superhero.appearance.height[0]; 
   console.log(heightString);
-  const height = convertHeightToDecimal(heightString); // Convert height to number (e.g., "6'3" => 6.25 or "203 cm" => 6.66)
+  const height = convertHeightToDecimal(heightString);
   console.log(height);
   
-  const averageHeight = 5.8; // Average height for the reference line
+  const averageHeight = 5.8; 
 
   const heightData = [
     { name: 'Height', value: height }
@@ -208,19 +205,16 @@ const SuperheroDetail = () => {
         <Particles className="absolute inset-0" quantity={250} ease={80} color='#fff' refresh />
       <div className="flex flex-col text-gray-800  md:h-screen items-center justify-center pb-4 md:pt-28 pt-20 relative">
       <div className="w-full  mx-auto md:p-8 flex flex-col lg:flex-row">
-        {/* Superhero Image and Name */}
         <div className="lg:w-1/3 p-4 md:h-screen h-full flex items-center justify-center">
           <SuperheroImage src={superhero.images.lg} alt={superhero.name} />
           
         </div>
 
-        {/* Superhero Details */}
         <div className="lg:w-2/3 p-4 flex flex-col">
         <div className='flex items-center justify-center text-center mb-8'>
           
         <h1 className="text-5xl font-extrabold text-gray-100 uppercase mt-6">{superhero.name}</h1>
         </div>
-          {/* Toggle Buttons */}
           <div className="flex flex-wrap md:justify-center mb-8">
             <button
               className={`w-36 md:w-auto px-4 py-2 mb-2 sm:mb-0 mx-2 rounded-sm ${section === 'biography' ? 'bg-red-600 text-white' : 'bg-gray-300 text-gray-800'}`}
@@ -261,8 +255,6 @@ const SuperheroDetail = () => {
             </button>
           </div>
 
-
-          {/* Conditional Rendering based on selected section */}
           {section === 'biography' && (
             <div className="bg-bg2 backdrop-blur-sm border border-gray-300 p-6 shadow-md mb-8">
             <h2 className="text-3xl font-extrabold text-red-600 mb-8">Biography</h2>
@@ -450,8 +442,9 @@ const SuperheroDetail = () => {
                  <Image
                    src={averageHeightIcon}
                    alt="Average Height"
-                   width={500} // Adjust the width as needed
-                   height={500} // Adjust the height as needed
+                   width={500} 
+                   height={500}
+                   loading='lazy' 
                    className="w-auto h-[185px] z-10"
                  />
                </div>
@@ -484,8 +477,8 @@ const SuperheroDetail = () => {
         <Image
           src={averageHeightIcon}
           alt="Average Height"
-          width={100} // Adjust the width as needed
-          height={100} // Adjust the height as needed
+          width={100} 
+          height={100} 
           className="w-auto h-[114px]"
         />
       </div>
