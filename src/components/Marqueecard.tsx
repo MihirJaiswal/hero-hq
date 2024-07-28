@@ -46,7 +46,7 @@ const ReviewCard = ({ img }: { img: string }) => {
       height={150}
       quality={100}
       loading="lazy"
-      className="w-full h-full object-cover rounded-full filter brightness-75" 
+      className="w-full h-full object-cover rounded-full filter brightness-95" 
       />
     </figure>
   );
@@ -54,9 +54,9 @@ const ReviewCard = ({ img }: { img: string }) => {
 
 export function MarqueeCard() {
   return (
-    <div className="relative flex h-full py-12 w-full flex-col items-center justify-center overflow-hidden md:shadow-xl bg-bg2">
+    <div className="relative h-[60vh] flex py-1 w-full flex-col items-center justify-center overflow-hidden md:shadow-xl bg-bg7">
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-[109vh] overflow-hidden">
-        <div className="absolute inset-x-0 -bottom-96 h-full bg-bg4 opacity-80 rounded-t-full"></div>
+        <div className="absolute inset-x-0 -bottom-96 h-full bg-[#08090D] opacity-80 rounded-t-full"></div>
       </div>
       
       <Marquee pauseOnHover className="[--duration:20s]">
@@ -69,6 +69,8 @@ export function MarqueeCard() {
           <ReviewCard key={index} img={review.img} />
         ))}
       </Marquee>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-[#08090d] dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-[#08090d] dark:from-background"></div>
     </div>
   );
 }

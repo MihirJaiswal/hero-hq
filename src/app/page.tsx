@@ -15,7 +15,6 @@ const page = () => {
       <AboutUs/>
       <SpecialCards/>
       <ClientSection/>
-      <MarqueeCard/>
       <FooterSection/>
     </div>
   )

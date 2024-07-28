@@ -37,7 +37,7 @@ export function MainSection() {
 
   return (
     <div
-      className="relative flex flex-col h-full w-full items-center justify-center px-2 md:px-10 overflow-hidden md:shadow-xl bg-bg1"
+      className="relative flex flex-col h-full w-full items-center justify-center px-2 md:px-10 overflow-hidden md:shadow-xl bg-bg2"
       ref={containerRef}
     >
       <div className='hidden md:block'>

@@ -181,6 +181,9 @@ const Superhero = () => {
           </button>
         </div>
       )}
+
+<div className="absolute top-0 right-0 z-0 h-1/5 w-full" style={{ backgroundImage: 'linear-gradient(to right top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
+<div className="absolute top-0 right-0 z-0 h-1/4 w-full" style={{ backgroundImage: 'linear-gradient(to left top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import Container from '@/components/heros/Container'
 import HeroCont from '@/components/heros/HeroCont'
 import HeroMob from '@/components/heros/HeroMob'
 import HomeHeader from '@/components/HomeHeader'
+import { MarqueeCard } from '@/components/Marqueecard'
 import React from 'react'
 
 const page = () => {
@@ -12,6 +13,7 @@ const page = () => {
       <HeroCont/>
       <HeroMob/>
       <Container/>
+      <MarqueeCard/>
       <Footer/>
     </div>
   )

@@ -6,7 +6,7 @@ import { MainSection } from '@/components/compare/MainSection'
 
 const page = () => {
   return (
-    <div className='bg-bg1 h-screen'>
+    <div className='bg-bg2 h-screen'>
         <HomeHeader/>
         <MainSection/>
         <SuperheroCompare/>
