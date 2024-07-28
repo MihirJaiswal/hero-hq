@@ -18,8 +18,7 @@ import {
   PieChart,
   Pie
 } from 'recharts';
-import { GlareCardDemo } from './Glare';
-import { GlareCard } from '../ui/glare-card';
+import { GlareCardDemo, GlareCardLoader } from './Glare';
 
 // Define types for superhero data
 interface Superhero {
@@ -58,6 +57,8 @@ interface WinProbabilityChartProps {
 const SuperheroCompare = () => {
   const [hero1, setHero1] = useState<Superhero | null>(null);
   const [hero2, setHero2] = useState<Superhero | null>(null);
+  const [loadingHero1, setLoadingHero1] = useState(false);
+  const [loadingHero2, setLoadingHero2] = useState(false);
   const [searchResults, setSearchResults] = useState<{ label: string; value: number }[]>([]);
 
   useEffect(() => {
@@ -74,20 +75,22 @@ const SuperheroCompare = () => {
     fetchAllSuperheroes();
   }, []);
 
-  const fetchSuperheroData = async (id: number, setData: (data: Superhero) => void) => {
+  const fetchSuperheroData = async (id: number, setData: (data: Superhero) => void, setLoading: (loading: boolean) => void) => {
+    setLoading(true);
     try {
       const response = await axios.get(`https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/id/${id}.json`);
       setData(response.data);
     } catch (error) {
       console.error('Error fetching superhero data:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleHeroChange = async (selectedOption: any, setHero: (data: Superhero | null) => void) => {
+  const handleHeroChange = async (selectedOption: any, setHero: (data: Superhero | null) => void, setLoading: (loading: boolean) => void) => {
+    setHero(null); // Clear the previous hero data
     if (selectedOption) {
-      await fetchSuperheroData(selectedOption.value, setHero);
-    } else {
-      setHero(null);
+      await fetchSuperheroData(selectedOption.value, setHero, setLoading);
     }
   };
 
@@ -153,26 +156,27 @@ const SuperheroCompare = () => {
 
     return (
       <div className="">
-      <PieChart width={200} height={200}>
-        <Pie
-          data={data}
-          dataKey="value"
-          nameKey="name"
-          cx="50%"
-          cy="50%"
-          outerRadius={70}
-          fill="#8884d8"
-          label={false} // Disable labels outside the pie chart
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-        <Tooltip />
-      </PieChart>
-    </div>
+        <PieChart width={200} height={200}>
+          <Pie
+            data={data}
+            dataKey="value"
+            nameKey="name"
+            cx="50%"
+            cy="50%"
+            outerRadius={70}
+            fill="#8884d8"
+            label={false} // Disable labels outside the pie chart
+          >
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+          <Tooltip />
+        </PieChart>
+      </div>
     );
   };
+
 
 
   return (
@@ -184,7 +188,7 @@ const SuperheroCompare = () => {
           <Select
             classNamePrefix="dark-select"
             className="w-full"
-            onChange={(selectedOption) => handleHeroChange(selectedOption, setHero1)}
+            onChange={(selectedOption) => handleHeroChange(selectedOption, setHero1, setLoadingHero1)}
             options={searchResults}
             placeholder="Search for Hero 1"
             styles={{
@@ -227,7 +231,13 @@ const SuperheroCompare = () => {
           />
           </div>
 
-          {hero1 ? (
+          {loadingHero1 ? (
+            <div>
+              <GlareCardLoader/>
+            </div>
+          ):
+          
+          hero1 ? (
             <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl">
               <div className="relative w-full h-72 mb-4">
                 <Image
@@ -326,7 +336,7 @@ const SuperheroCompare = () => {
           <Select
               classNamePrefix="dark-select"
               className="w-full"
-              onChange={(selectedOption) => handleHeroChange(selectedOption, setHero2)}
+              onChange={(selectedOption) => handleHeroChange(selectedOption, setHero2, setLoadingHero2)}
               options={searchResults}
               placeholder="Search for Hero 2"
               styles={{
@@ -369,7 +379,13 @@ const SuperheroCompare = () => {
             />
           </div>
 
-          {hero2 ? (
+          { loadingHero2 ? (
+            <div>
+              <GlareCardLoader/>
+            </div>
+          ):
+          
+          hero2 ? (
             <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl">
               <div className="relative w-full h-72 mb-4">
               <Image

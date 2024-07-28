@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
         {/* Footer bottom */}
         <div className="mb-6 flex items-center justify-center space-x-2">
           <span className="text-sm text-white dark:text-secondary-900">
-            © 2024 HERO-HQ
+            © 2024 Mihir Jaiswal
           </span>
         </div>
       </div>

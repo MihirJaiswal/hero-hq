@@ -66,8 +66,8 @@ const Hero: React.FC = () => {
               <Image
                 src={selectedHero.logoImage}
                 alt="Superhero Logo"
-                width={800}
-                height={800}
+                width={300}
+                height={300}
                 quality={100}
                 className="w-32 md:w-48 object-contain"
                 loading='lazy'

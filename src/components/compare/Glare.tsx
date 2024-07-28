@@ -9,3 +9,12 @@ export function GlareCardDemo() {
     </GlareCard>
   );
 }
+
+export function GlareCardLoader() {
+  return (
+    <GlareCard className="flex flex-col items-center justify-center">
+      <Image src="/loader.gif" alt="Add Hero" className="w-24 filter brightness-95" width={96} height={96} priority />
+      <p className="text-white font-bold text-xl mt-4">Loading...</p>
+    </GlareCard>
+  );
+}
