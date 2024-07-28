@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import Select from 'react-select';
 import classNames from 'classnames';
 import { FaGenderless, FaRuler, FaWeightHanging, FaUser, FaBuilding } from 'react-icons/fa';
@@ -18,7 +18,7 @@ import {
   PieChart,
   Pie
 } from 'recharts';
-import { GlareCardDemo } from '../Glare';
+import { GlareCardDemo } from './Glare';
 import { GlareCard } from '../ui/glare-card';
 
 // Define types for superhero data
@@ -230,10 +230,13 @@ const SuperheroCompare = () => {
           {hero1 ? (
             <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl">
               <div className="relative w-full h-72 mb-4">
-                <img
+                <Image
                   src={hero1.images.lg}
                   alt={hero1.name}
-                  className="w-full h-full object-cover shimmer border border-gray-600  rounded-t-3xl"
+                  layout="fill"
+                  loading='lazy'
+                  quality={100}
+                  className="w-full h-full object-cover shimmer border border-gray-600 rounded-t-3xl"
                 />
               </div>
               <div className='text-gray-300 flex flex-col items-start gap-2'>
@@ -369,9 +372,12 @@ const SuperheroCompare = () => {
           {hero2 ? (
             <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl">
               <div className="relative w-full h-72 mb-4">
-                <img
+              <Image
                   src={hero2.images.lg}
                   alt={hero2.name}
+                  layout="fill"
+                  loading='lazy'
+                  quality={100}
                   className="w-full h-full object-cover shimmer border border-gray-600 rounded-t-3xl"
                 />
               </div>

@@ -1,7 +1,7 @@
 "use client";
 import Particles from '../ui/particles';
 import React, { forwardRef, useRef } from "react";
-
+import Image from 'next/image';
 import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "@/components/ui/animated-beam";
 import { BorderBeam } from '../ui/border-beam';
@@ -14,7 +14,7 @@ const Circle = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "z-10 flex size-16 items-center justify-center rounded-full   shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]", // Adjusted size and padding
+        "z-10 flex size-16 items-center justify-center rounded-full shadow-[0_0_20px_-12px_rgba(0,0,0,0.8)]", // Adjusted size and padding
         className,
       )}
     >
@@ -24,7 +24,6 @@ const Circle = forwardRef<
 });
 
 Circle.displayName = "Circle";
-
 
 export function MainSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -41,17 +40,17 @@ export function MainSection() {
       className="relative flex flex-col h-full w-full items-center justify-center px-2 md:px-10 overflow-hidden md:shadow-xl bg-bg1"
       ref={containerRef}
     >
-     
       <div className='hidden md:block'>
-      <img src="/space/moon.png" alt="" className='w-44 fixed top-20 right-0' />
-      <img src="/space/saturn.png" alt="" className='w-24 absolute top-24 right-44 opacity-30' />
+        <Image src="/space/moon.png" alt="" className='w-44 fixed top-20 right-0' width={176} height={176} loading='lazy' />
+        <Image src="/space/saturn.png" alt="" className='w-24 absolute top-24 right-44 opacity-30' width={96} height={96} loading='lazy' />
       </div>
       
-          <div className='fixed inset-0 bg-bg6 bg-contain bg-repeat-x bg-center opacity-60 pointer-events-none'></div>
-          <div className='fixed inset-0 bg-black bg-contain bg-repeat-x bg-center opacity-30 pointer-events-none'></div>
-          <Particles className="absolute inset-0" quantity={180} ease={80} color='#ffffff' refresh />
-          <div className='absolute h-screen inset-0 bg-bg5 bg-cover opacity-60 bg-center pointer-events-none flex items-center justify-center'></div>
-      <div className="flex size-full flex-col max-w-lg max-h-[200px] items-stretch justify-between gap-10  -mt-14">
+      <div className='fixed inset-0 bg-bg6 bg-contain bg-repeat-x bg-center opacity-60 pointer-events-none'></div>
+      <div className='fixed inset-0 bg-black bg-contain bg-repeat-x bg-center opacity-30 pointer-events-none'></div>
+      <Particles className="absolute inset-0" quantity={180} ease={80} color='#ffffff' refresh />
+      <div className='absolute h-screen inset-0 bg-bg5 bg-cover opacity-60 bg-center pointer-events-none flex items-center justify-center'></div>
+      
+      <div className="flex size-full flex-col max-w-lg max-h-[200px] items-stretch justify-between gap-10 -mt-14">
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div1Ref}>
             <Icons.ironman />
@@ -122,55 +121,50 @@ export function MainSection() {
         endYOffset={10}
         reverse
       />
-         <div className='flex items-center justify-center absolute bottom-12 border border-gray-600 p-2'>
-         <h2 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-2xl md:text-4xl uppercase">
-            Compare the Heroes 
-          </h2>
-          <BorderBeam/>
-         </div>
+      <div className='flex items-center justify-center absolute bottom-12 border border-gray-600 p-2'>
+        <h2 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-2xl md:text-4xl uppercase">
+          Compare the Heroes
+        </h2>
+        <BorderBeam />
+      </div>
     </div>
   );
 }
 
-
 const Icons = {
-    captainamerica: () => (
-      <div className="shining-border">
-        <img src="/icons/shield.png" alt="icon" className="rounded-full" />
-      </div>
-    ),
-    HQ: () => (
-      <div className="shining-border">
-        <img src="/logo.png" alt="icon" className="rounded-full" />
-      </div>
-    ),
-    ironman: () => (
-      <div className="shining-border">
-        <img src="/icons/deadpool.png" alt="icon" className="rounded-full" />
-      </div>
-    ),
-    spiderman: () => (
-      <div className="shining-border">
-        <img src="/icons/wonderwoman.png" alt="icon" className="rounded-full" />
-      </div>
-    ),
-    batman: () => (
-      <div className="shining-border">
-        <img src="/icons/drstrange.png" alt="icon" className="rounded-full" />
-      </div>
-    ),
-    superman: () => (
-      <div className="shining-border">
-        <img src="/icons/thefantasticfour.png" alt="icon" className="rounded-full" />
-      </div>
-    ),
-    flash: () => (
-      <div className="shining-border">
-        <img
-          src="/icons/robin.png"
-          alt="icon"
-          className="rounded-full"
-        />
-      </div>
-    ),
-  };
+  captainamerica: () => (
+    <div className="shining-border">
+      <Image src="/icons/shield.png" alt="icon" className="rounded-full" width={100} height={100} loading='lazy' />
+    </div>
+  ),
+  HQ: () => (
+    <div className="shining-border">
+      <Image src="/logo.png" alt="icon" className="rounded-full" width={100} height={100} loading='lazy' />
+    </div>
+  ),
+  ironman: () => (
+    <div className="shining-border">
+      <Image src="/icons/deadpool.png" alt="icon" className="rounded-full" width={100} height={100} loading='lazy' />
+    </div>
+  ),
+  spiderman: () => (
+    <div className="shining-border">
+      <Image src="/icons/wonderwoman.png" alt="icon" className="rounded-full" width={100} height={100} loading='lazy' />
+    </div>
+  ),
+  batman: () => (
+    <div className="shining-border">
+      <Image src="/icons/drstrange.png" alt="icon" className="rounded-full" width={100} height={100} loading='lazy' />
+    </div>
+  ),
+  superman: () => (
+    <div className="shining-border">
+      <Image src="/icons/thefantasticfour.png" alt="icon" className="rounded-full" width={100} height={100} loading='lazy' />
+    </div>
+  ),
+  flash: () => (
+    <div className="shining-border">
+      <Image src="/icons/robin.png" alt="icon" className="rounded-full" width={100} height={100} loading='lazy' />
+    </div>
+  ),
+};
