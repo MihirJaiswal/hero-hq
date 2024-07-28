@@ -74,16 +74,16 @@ const SuperheroImage = ({ src, alt }: { src: string; alt: string }) => {
   return (
     <div className="relative w-full h-[500px] bg-bg2">
       {loading && (
-        <div className='flex items-center justify-center h-full bg-bg1'>
+        <div className='h-full flex items-center justify-center w-full overflow-hidden'>
           <Loader/>
         </div>
       )}
       <Image
-        src={useFallbackImage ? '/fallback-image.jpg' : src}
+        src={useFallbackImage ? '' : src}
         alt={alt}
         layout="fill"
         objectFit="contain"
-        className="shadow-lg border"
+        className="shadow-lg border overflow-hidden"
         onLoadingComplete={() => setLoading(false)}
         onError={handleImageError}
       />
