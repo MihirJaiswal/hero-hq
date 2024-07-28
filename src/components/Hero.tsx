@@ -25,7 +25,7 @@ const superheroes: Superhero[] = [
     name: 'Batman',
     image: '/batman.png',
     description: 'The Dark Knight of Gotham, Batman uses his intelligence, physical prowess, and an array of gadgets to combat crime.',
-    backgroundImage: '/Batman-logo.png',
+    backgroundImage: '/Batman-Logo.png',
     logoImage: '/bat.png',
   },
   {
