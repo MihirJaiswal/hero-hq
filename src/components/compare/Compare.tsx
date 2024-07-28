@@ -243,7 +243,8 @@ const SuperheroCompare = () => {
                 <Image
                   src={hero1.images.lg}
                   alt={hero1.name}
-                  layout="fill"
+                  width={500}
+                  height={500}
                   loading='lazy'
                   quality={100}
                   className="w-full h-full object-cover shimmer border border-gray-600 rounded-t-3xl"
@@ -391,7 +392,8 @@ const SuperheroCompare = () => {
               <Image
                   src={hero2.images.lg}
                   alt={hero2.name}
-                  layout="fill"
+                  width={500}
+                  height={500}
                   loading='lazy'
                   quality={100}
                   className="w-full h-full object-cover shimmer border border-gray-600 rounded-t-3xl"
