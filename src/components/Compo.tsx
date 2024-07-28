@@ -11,7 +11,7 @@ const cardData = [
   },
   {
     id: 1,
-    imageSrc: '/icons/vector.png',
+    imageSrc: '/icons/Vector.png',
     title: 'Up-to-Date Information',
     description: 'Stay updated with the latest news and updates from the heroes world. Our platform provides real-time info on new characters across various universes.',
   },

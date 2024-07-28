@@ -179,7 +179,7 @@ const SuperheroCompare = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 ">
         {/* Hero 1 */}
         <div className="col-span-1 flex flex-col items-center justify-center ">
-          <div className="pb-8 w-full px-6 text-white">
+          <div className="pb-8 w-full px-6 text-white z-40">
           <Select
             classNamePrefix="dark-select"
             className="w-full"
@@ -233,7 +233,7 @@ const SuperheroCompare = () => {
           ):
           
           hero1 ? (
-            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl z-40">
+            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl z-30">
               <div className="relative w-full h-72 mb-4">
                 <Image
                   src={hero1.images.lg}
@@ -322,7 +322,7 @@ const SuperheroCompare = () => {
           )}
         </div>
         <div className="col-span-1 flex flex-col items-center justify-center">
-          <div className="pb-8 w-full px-6">
+          <div className="pb-8 w-full px-6 z-40">
           <Select
               classNamePrefix="dark-select"
               className="w-full"
@@ -374,7 +374,7 @@ const SuperheroCompare = () => {
             </div>
           ):
           hero2 ? (
-            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl z-40">
+            <div className="bg-bg2 py-6 px-12 shadow-md border border-gray-600 max-w-sm rounded-3xl z-30">
               <div className="relative w-full h-72 mb-4">
               <Image
                   src={hero2.images.lg}
@@ -402,11 +402,11 @@ const SuperheroCompare = () => {
         </div>
         <div
         className={classNames(
-          "col-span-1 md:col-span-2 flex flex-col items-center justify-center z-40",
+          "col-span-1 md:col-span-2 flex flex-col items-center justify-center z-30",
           { "md:bg-gray-950 border border-gray-600 p-8 md:p-0 md:hidden": hero1 && hero2 }
         )}
       >
-        <h1 className='text-red-600 mb-4 text-3xl font-bold'>RESULT</h1>
+        <h1 className='text-red-600 mb-4 text-3xl font-bold md:hidden'>RESULT</h1>
         {hero1 && hero2 ? (
           <>
             <div className='flex flex-col md:flex-row p-4 border'>
