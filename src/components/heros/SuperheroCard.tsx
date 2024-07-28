@@ -26,6 +26,7 @@ const SuperheroCard: React.FC<SuperheroCardProps> = ({ superhero, imageSrc }) =>
             width={1000}
             height={1000}
             quality={100}
+            loading='lazy'
             className="w-full object-contain h-full"
           />
         </div>

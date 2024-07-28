@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaSearch } from 'react-icons/fa';
 import SuperheroCard from './SuperheroCard';
+import ShimmerCard from './Shimmer';
+import Image from 'next/image';
 
 interface Superhero {
   id: number;
@@ -89,10 +91,6 @@ const Superhero = () => {
     setDisplayedCount((prev) => Math.min(prev + 8, filteredSuperheroes.length));
   };
 
-  if (loading) {
-    return <div className="min-h-screen flex items-center justify-center text-xl font-semibold">Loading...</div>;
-  }
-
   if (error) {
     return <div className="min-h-screen flex items-center justify-center text-xl font-semibold text-red-500">{error}</div>;
   }
@@ -101,7 +99,14 @@ const Superhero = () => {
     <div className="min-h-screen backdrop-blur-md border border-black p-6 relative">
       <div className="relative mx-auto max-w-5xl text-center flex flex-col items-center justify-center">
         <div>
-          <img src="/logo.png" alt="Hero HQ Logo" className='w-24 mb-2' />
+          <Image
+           src="/logo.png"
+           width={200}
+           height={200}
+           quality={100}
+           loading='lazy'
+           alt="Hero HQ Logo" 
+           className='w-24 mb-2' />
         </div>
         <h2 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-2xl md:text-4xl">
           Discover the Heroes Behind the Legends
@@ -155,26 +160,27 @@ const Superhero = () => {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-8">
-        {heroesToDisplay.map((superhero) => (
-          <SuperheroCard
-            key={superhero.id}
-            superhero={superhero}
-            imageSrc={superhero.images.sm}
-          />
-        ))}
+        {loading 
+          ? Array.from({ length: displayedCount }).map((_, index) => <ShimmerCard key={index} />)
+          : heroesToDisplay.map((superhero) => (
+            <SuperheroCard
+              key={superhero.id}
+              superhero={superhero}
+              imageSrc={superhero.images.sm}
+            />
+          ))
+        }
       </div>
-      {displayedCount < filteredSuperheroes.length && (
-        <div className="flex justify-center mt-10">
+      {displayedCount < filteredSuperheroes.length && !loading && (
+        <div className="flex justify-center mt-8">
           <button
             onClick={handleLoadMore}
-            className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors"
+            className="bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             Load More
           </button>
         </div>
       )}
-      <div className="absolute top-0 right-0 z-0 md:h-1/3 h-44 w-full" style={{ backgroundImage: 'linear-gradient(to right top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
-      <div className="absolute top-0 right-0 z-0 md:h-1/3 h-44 w-full" style={{ backgroundImage: 'linear-gradient(to left top, transparent 0%, transparent 50%, rgba(220, 38, 38, 0.2) 100%)', borderColor: 'rgba(0, 0, 0, 0)' }}></div>
     </div>
   );
 };

@@ -16,6 +16,7 @@ export function TabMob() {
             width="1000"
             height="1000"
             className="object-cover h-48 w-auto"
+            loading="lazy"
           />
           <DummyContent />
         </div>
@@ -32,6 +33,7 @@ export function TabMob() {
             width="1000"
             height="1000"
             className="object-cover  h-48 w-auto"
+            loading="lazy"
           />
           <DummyContent />
         </div>
@@ -48,6 +50,7 @@ export function TabMob() {
             width="1000"
             height="1000"
             className="object-cover  h-48 w-auto"
+            loading="lazy"
           />
           <DummyContent />
         </div>
@@ -64,6 +67,7 @@ export function TabMob() {
             width="1000"
             height="1000"
             className="object-cover  h-48 w-auto"
+            loading="lazy"
           />
           <DummyContent />
         </div>
@@ -80,6 +84,7 @@ export function TabMob() {
             width="1000"
             height="1000"
             className="object-cover  h-48 w-auto"
+            loading="lazy"
           />
           <DummyContent />
         </div>
