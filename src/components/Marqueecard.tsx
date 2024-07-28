@@ -55,8 +55,8 @@ const ReviewCard = ({ img }: { img: string }) => {
 export function MarqueeCard() {
   return (
     <div className="relative h-[60vh] flex py-1 w-full flex-col items-center justify-center overflow-hidden md:shadow-xl bg-bg2 md:bg-bg7">
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-[109vh] overflow-hidden">
-        <div className="absolute inset-x-0 -bottom-96 h-full bg-[#08090D] opacity-80 rounded-t-full"></div>
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[110vw] h-[111vh] overflow-hidden">
+        <div className="absolute inset-x-0 -bottom-96 h-full bg-bg4 opacity-80 rounded-t-full"></div>
       </div>
       
       <Marquee pauseOnHover className="[--duration:20s]">
