@@ -405,7 +405,7 @@ const SuperheroDetail = () => {
                   <div className="mb-8 md:hidden bg-bg2 backdrop-blur-sm p-6 border border-gray-300 shadow-md">
                   <div className="text-center mb-4">
                     <h2 className="text-2xl font-extrabold text-red-600 mb-2">Power Stats</h2>
-                    <BarChart width={300} height={300} data={powerStatsData} layout="vertical">
+                    <BarChart width={280} height={300} data={powerStatsData} layout="vertical">
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis type="number" tick={<CustomXAxisTick />} />
                       <YAxis type="category" dataKey="name" tick={<CustomYAxisTick />} />

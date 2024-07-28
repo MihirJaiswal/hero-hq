@@ -268,7 +268,7 @@ const SuperheroCompare = () => {
         {/* Comparison Results */}
         <div
   className={classNames(
-    "col-span-1 md:col-span-2 flex flex-col items-center justify-center z-40",
+    "col-span-1 md:col-span-2 hidden md:flex flex-col items-center justify-center z-40",
     { "md:bg-gray-950 border border-gray-600 p-8 md:p-0": hero1 && hero2 }
   )}
 >
@@ -413,6 +413,71 @@ const SuperheroCompare = () => {
             </div>
           )}
         </div>
+        <div
+  className={classNames(
+    "col-span-1 md:col-span-2 flex flex-col items-center justify-center z-40",
+    { "md:bg-gray-950 border border-gray-600 p-8 md:p-0 md:hidden": hero1 && hero2 }
+  )}
+>
+  <h1 className='text-red-600 mb-4 text-3xl font-bold'>RESULT</h1>
+  {hero1 && hero2 ? (
+    <>
+      <div className='flex flex-col md:flex-row p-4 border'>
+      <BarChart width={300} height={200} data={powerStatsData} className="mb-6">
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey={hero1?.name || 'Hero 1'} fill="#c91a14" />
+        <Bar dataKey={hero2?.name || 'Hero 2'} fill="#1a14c9" />
+      </BarChart>
+      <BarChart width={300} height={200} data={heightData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="height" fill='#13a813'>
+          {heightData.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={entry.name === (hero1?.name || 'Hero 1') ? '#c91a14' : '#1a14c9'}
+            />
+          ))}
+        </Bar>
+      </BarChart>
+      </div>
+      <div className="py-3 px-16 mt-2 border">
+  <h2 className="text-2xl font-bold text-white mb-6 text-center">Win Probability</h2>
+  <div className='flex flex-col md:flex-row items-center justify-between w-full gap-6'>
+    <div className="flex-1 text-center md:text-left">
+      <WinProbabilityChart
+        hero1Probability={hero1Probability}
+        hero2Probability={hero2Probability}
+        hero1Name={hero1.name}
+        hero2Name={hero2.name}
+      />
+    </div>
+   
+    <div className="text-white flex-1 text-center md:text-left">
+      <p className="text-md font-normal mb-2">
+        <span className='text-red-600'>{hero1.name}</span> has a {Math.round(hero1Probability * 100)}%
+      </p>
+      <p className="text-md font-normal">
+      <span className='text-blue-600'>{hero2.name}</span> has a {Math.round(hero2Probability * 100)}%
+      </p>
+    </div>
+  </div>
+</div>
+
+    </>
+  ) : (
+    <div className="flex flex-col items-center justify-center h-44 md:hidden">
+      <p className="text-lg font-bold text-gray-700 border bg-white/60 p-2 rounded-md">Choose heroes to compare</p>
+    </div>
+  )}
+</div>
       </div>
     </div>
   );
