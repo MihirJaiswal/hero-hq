@@ -48,9 +48,9 @@ export function MainSection() {
       <div className='fixed inset-0 bg-bg6 bg-contain bg-repeat-x bg-center opacity-60 pointer-events-none'></div>
       <div className='fixed inset-0 bg-black bg-contain bg-repeat-x bg-center opacity-30 pointer-events-none'></div>
       <Particles className="absolute inset-0" quantity={180} ease={80} color='#ffffff' refresh />
-      <div className='absolute h-screen inset-0 bg-bg5 bg-cover opacity-60 bg-center pointer-events-none flex items-center justify-center'></div>
+      <div className='fixed h-screen inset-0 bg-bg5 bg-cover opacity-60 bg-center pointer-events-none flex items-center justify-center'></div>
       
-      <div className="flex size-full flex-col max-w-lg max-h-[200px] items-stretch justify-between gap-10 -mt-14">
+      <div className="flex size-full flex-col max-w-lg max-h-[200px] items-stretch justify-center gap-10">
         <div className="flex flex-row items-center justify-between">
           <Circle ref={div1Ref}>
             <Icons.ironman />
@@ -121,7 +121,7 @@ export function MainSection() {
         endYOffset={10}
         reverse
       />
-      <div className='flex items-center justify-center absolute bottom-12 border border-gray-600 p-2'>
+      <div className='flex items-center justify-center absolute bottom-20 border border-gray-600 p-2'>
         <h2 className="block w-full bg-gradient-to-b from-white to-gray-400 bg-clip-text font-bold text-transparent text-2xl md:text-4xl uppercase">
           Compare the Heroes
         </h2>
